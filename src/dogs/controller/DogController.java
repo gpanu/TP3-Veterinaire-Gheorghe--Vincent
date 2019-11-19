@@ -18,7 +18,6 @@ public class DogController implements IDogController {
 	public void goToCreate() {
 		IView addDogView = new AddView(this);
 		addDogView.display();
-		
 	}
 
 	@Override
