@@ -1,7 +1,11 @@
 package dogs;
 
+import dogs.controller.DogController;
+import dogs.controller.IDogController;
 import dogs.controller.IWelcomeController;
 import dogs.controller.WelcomeController;
+import dogs.repository.DogRepository;
+import dogs.repository.IDogRepository;
 import dogs.view.WelcomeView;
 
 public class MainAppDogs {
@@ -16,7 +20,9 @@ public class MainAppDogs {
 	}
 	
 	private void createControllers() {
-		IWelcomeController appController = new WelcomeController();
+		IDogRepository repository = new DogRepository();
+		IDogController dogController = new DogController(repository);
+		IWelcomeController appController = new WelcomeController(dogController);
 		appController.startApplication();
 	}
 

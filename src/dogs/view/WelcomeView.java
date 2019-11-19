@@ -3,8 +3,11 @@ package dogs.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,7 +16,7 @@ import javax.swing.SwingConstants;
 import dogs.controller.IWelcomeController;
 import util.image.ImageUtil;
 
-public class WelcomeView extends JFrame implements IView {   // Configurer Eclipse pour ignorer les avertissements sur serial Id
+public class WelcomeView extends JFrame implements IView, ActionListener{   // Configurer Eclipse pour ignorer les avertissements sur serial Id
 	
 	private static final String VIEW_TITLE = "Nos amis les chiens";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
@@ -21,8 +24,12 @@ public class WelcomeView extends JFrame implements IView {   // Configurer Eclip
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
 
 	private static final Dimension DEFAULT_SIZE = new Dimension(475, 530);
+	private static final String BUTTON_ADD_ACTION = "ADD_DOG";
+	private String SHOW_TITLE = "Show dog list";
+	private String BUTTON_SHOW_ACTION = "SHOW_DOGS";
 	
 	private IWelcomeController controller;		// Pas encore utilisé dans cette version...
+	
 	
 	public WelcomeView(IWelcomeController controller) {
 		super(VIEW_TITLE);
@@ -71,7 +78,39 @@ public class WelcomeView extends JFrame implements IView {   // Configurer Eclip
 	}
 
 	private void setUpActionPanel() {
+		JPanel action = new JPanel();
+		this.add(action, BorderLayout.SOUTH);
+		addButton(action, VIEW_TITLE, BUTTON_ADD_ACTION);
+		addButton(action, SHOW_TITLE, BUTTON_SHOW_ACTION);
+	}
+	
+	private void addButton(JPanel panel, String message, String buttonAction) {
+		JButton button = new JButton(message);
+		button.setActionCommand(buttonAction);
+		button.addActionListener(this);
+		
+		panel.add(button);
+		
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent act) {
+		if(act.getActionCommand().equals(BUTTON_ADD_ACTION)) {
+			this.actionAndDogAsked();
+		}
+		if(act.getActionCommand().equals(BUTTON_SHOW_ACTION)) {
+			this.showDogsAsked();
+		}
+		
+	}
 
+	private void showDogsAsked() {
+		this.controller.wantShowDogs();
+		
+	}
+
+	private void actionAndDogAsked() {
+		this.controller.wantCreateDog();
+	}
+	
 }
