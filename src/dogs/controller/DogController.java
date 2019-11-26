@@ -1,6 +1,7 @@
 package dogs.controller;
 
 import dogs.view.IView;
+import dogs.view.ShowView;
 import dogs.model.Dog;
 import dogs.model.DogDTO;
 import dogs.repository.IDogRepository;
@@ -28,6 +29,8 @@ public class DogController implements IDogController {
 
 	@Override
 	public void goToShow() {
+		IView ShowDogView = new ShowView(this);
+		ShowDogView.display();
 		
 		
 	}

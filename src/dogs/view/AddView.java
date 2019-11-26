@@ -99,7 +99,9 @@ public class AddView extends JDialog implements IView, ActionListener {
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
 			this.insertDog();
+			dispose();
 		}
+		
 		
 	}
 

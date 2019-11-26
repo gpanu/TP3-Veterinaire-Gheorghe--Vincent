@@ -10,20 +10,29 @@ import dogs.view.WelcomeView;
 
 public class MainAppDogs {
 
+	IDogRepository repository;
 	
 	public static void main(String[] args) {
 		new MainAppDogs();
 	}
 
 	public MainAppDogs() {
+		this.createRepository();
 		this.createControllers();
 	}
 	
+	private void createRepository() {
+		this.repository = new DogRepository();
+		seedData();
+	}
+
+	private void seedData() {
+		new DataSeed(this.repository);
+	}
+
 	private void createControllers() {
-		IDogRepository repository = new DogRepository();
-		IDogController dogController = new DogController(repository);
+		IDogController dogController = new DogController(this.repository);
 		IWelcomeController appController = new WelcomeController(dogController);
 		appController.startApplication();
 	}
-
 }
