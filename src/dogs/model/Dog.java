@@ -4,18 +4,19 @@ public class Dog {  // La classe est très simple ici mais il pourrait avoir des 
 	
 	private int id = 0;
 	private String name;
-	private String breed;  // Idéalement faire une classe Breed (préférer à une enum)
+	private String breed;
+	private static int nextDog = 1;
 	
 	public Dog(String name, String breed) {
 		//TODO: calculer l'id --> un no unique pour identifier un chien
 		this.name = name;
 		this.breed = breed;
-		icrementId();
-		
+		this.id = nextDog;
+		incrementId();
 	}
 
-	private void icrementId() {
-		this.id++;	
+	public void incrementId() {
+		nextDog++;
 	}
 
 	public int getId() {

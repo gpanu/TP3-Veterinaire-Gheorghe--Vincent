@@ -12,7 +12,7 @@ public class DogRepository implements IDogRepository{
 
 	@Override
 	public void add(Dog dog) {
-		dogs.put(dog.getId(), dog);		
+		dogs.put(dog.getId(), dog);
 	}
 	
 	public Collection<Dog> getList(){

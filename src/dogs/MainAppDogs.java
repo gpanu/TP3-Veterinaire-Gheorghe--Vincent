@@ -23,7 +23,7 @@ public class MainAppDogs {
 	
 	private void createRepository() {
 		this.repository = new DogRepository();
-		seedData();
+		this.seedData();
 	}
 
 	private void seedData() {

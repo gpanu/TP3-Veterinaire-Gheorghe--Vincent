@@ -9,6 +9,7 @@ public class DataSeed {
 
 	public DataSeed(IDogRepository repository) {
 		this.repository = repository;
+		this.tableSeeder(repository);
 	}
 	
 	public void tableSeeder (IDogRepository repository) {
