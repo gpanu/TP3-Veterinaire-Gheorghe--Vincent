@@ -26,7 +26,6 @@ public class ShowView extends JDialog implements IView {
 		this.setUpActionPanel();
 		this.setUPTable();
 		this.pack();
-		
 	}
 
 	private void setUPTable() {	
