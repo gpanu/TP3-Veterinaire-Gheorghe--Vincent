@@ -16,8 +16,8 @@ public class Repository<T extends Entity> implements IRepository<T>{
 	}
 
 
-	public void add(Entity t) {
-		entities.put(t.getId(), (T) t);
+	public void add(T t) {
+		entities.put(t.getId(), t);
 	}
 
 

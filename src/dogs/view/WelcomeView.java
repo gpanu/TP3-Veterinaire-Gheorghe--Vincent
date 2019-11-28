@@ -18,7 +18,7 @@ import util.image.ImageUtil;
 
 public class WelcomeView extends JFrame implements IView, ActionListener{   // Configurer Eclipse pour ignorer les avertissements sur serial Id
 	
-	private static final String VIEW_TITLE = "Nos amis les chiens";
+	private static final String VIEW_TITLE = "Add dog";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
 	private static final Dimension DEFAULT_SIZE = new Dimension(475, 530);

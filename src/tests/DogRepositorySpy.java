@@ -12,7 +12,8 @@ public class DogRepositorySpy implements IRepository {
 	boolean isAdd = false;
 	boolean getList = false;
 
-	public void add(Entity dog) {
+	@Override
+	public void add(Object dog) {
 		// TODO Auto-generated method stub
 		isAdd = true;
 	}
