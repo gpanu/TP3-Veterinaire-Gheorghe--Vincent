@@ -7,7 +7,6 @@ public class DogDTO {
 	public DogDTO(String name, String breed) {
 		this.name = name;
 		this.breed = breed;
-		
 	}
 
 }
