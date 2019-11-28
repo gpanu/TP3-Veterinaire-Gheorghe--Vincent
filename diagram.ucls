@@ -91,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="dogs.view.ShowView" project="Dogs" file="/Dogs/src/dogs/view/ShowView.java" 
+  <class id="11" language="java" name="dogs.view.ShowDogView" project="Dogs" file="/Dogs/src/dogs/view/ShowDogView.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1240" y="253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

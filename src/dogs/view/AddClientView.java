@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import dogs.controller.ClientController;
+import dogs.dto.ClientDTO;
+import dogs.dto.DogDTO;
 
 public class AddClientView extends JDialog implements IView, ActionListener {
 
@@ -104,9 +106,16 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent act) {
+		if(act.getActionCommand().equals(BUTTON_ACTION)){
+			this.insertClient();
+			dispose();
+		}
+	}
+
+	private void insertClient() {
+		ClientDTO dto = new ClientDTO(this.firstName.getText(), this.lastName.getText(), this.number.getText());
+		this.clientController.addClientToRepository(dto);
 	}
 
 }

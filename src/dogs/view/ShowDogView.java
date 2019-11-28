@@ -7,7 +7,7 @@ import javax.swing.JTable;
 import dogs.controller.DogController;
 import dogs.dto.DogDTOWithId;
 
-public class ShowView extends JDialog implements IView {
+public class ShowDogView extends JDialog implements IView {
 
 	private static final int ID_COLUMN = 0;
 	private static final int NAME_COLUMN = 1;
@@ -15,7 +15,7 @@ public class ShowView extends JDialog implements IView {
 	private DogController dogController;
 	private List<DogDTOWithId> list;
 
-	public ShowView(DogController dogController, List<DogDTOWithId> list) {
+	public ShowDogView(DogController dogController, List<DogDTOWithId> list) {
 		super();
 		this.dogController = dogController;
 		this.list = list;
@@ -23,7 +23,6 @@ public class ShowView extends JDialog implements IView {
 	}
 
 	private void setUpComponents() {
-		this.setUpActionPanel();
 		this.setUPTable();
 		this.pack();
 	}
@@ -42,13 +41,8 @@ public class ShowView extends JDialog implements IView {
 		this.add(scr);
 	}
 
-	private void setUpActionPanel() {
-		JPanel action = new JPanel();
-	}
-
 	@Override
 	public void display() {
 		this.setVisible(true);
-
 	}
 }

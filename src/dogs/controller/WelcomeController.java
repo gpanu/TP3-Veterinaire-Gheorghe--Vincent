@@ -1,7 +1,4 @@
 package dogs.controller;
-
-import javax.swing.JButton;
-
 import dogs.view.IView;
 import dogs.view.WelcomeView;
 

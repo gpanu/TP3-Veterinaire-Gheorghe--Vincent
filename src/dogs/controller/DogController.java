@@ -1,13 +1,11 @@
 package dogs.controller;
 
 import dogs.view.IView;
-import dogs.view.ShowView;
+import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import javax.swing.JDialog;
-
 import dogs.dto.DogDTO;
 import dogs.dto.DogDTOWithId;
 import dogs.model.Dog;
@@ -16,9 +14,9 @@ import dogs.view.AddDogView;
 
 public class DogController extends JDialog implements IDogController {
 	
-	private IRepository repository;
+	private IRepository<Dog> repository;
 	
-	public DogController(IRepository repository) {
+	public DogController(IRepository<Dog> repository) {
 		this.repository = repository;
 	}
 
@@ -43,17 +41,11 @@ public class DogController extends JDialog implements IDogController {
 			dogs.add(dto);
 		}
 		
-		IView ShowDogView = new ShowView(this, dogs);
+		IView ShowDogView = new ShowDogView(this, dogs);
 		ShowDogView.display();
-		
-		
-	}
-	
-	public void showDogs() {
-		
 	}
 
-	public IRepository getRepo() {
+	public IRepository<Dog> getRepo() {
 		// TODO Auto-generated method stub
 		return this.repository;
 	}

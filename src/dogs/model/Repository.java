@@ -12,11 +12,9 @@ public class Repository<T extends Entity> implements IRepository<T>{
 		return this.entities.values();	
 	}
 
-
-	public void add(T t) {
-		entities.put(t.getId(), t);
+	public void add(T objectToAdd) {
+		entities.put(objectToAdd.getId(), objectToAdd);
 	}
-
 
 //	public Dog searchById(int id) {
 //	

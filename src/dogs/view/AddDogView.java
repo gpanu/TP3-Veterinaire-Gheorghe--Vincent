@@ -31,7 +31,6 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 		super();
 		this.dogController = dogController;
 		this.setUpComponents();
-		
 	}
 
 	private void setUpComponents() {
@@ -39,7 +38,6 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 		this.setUpNamePanel();
 		this.setUpActionPanel();
 		this.pack();
-		
 	}
 
 	private void setUpActionPanel() {
@@ -54,7 +52,6 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 		button.addActionListener(this);
 		
 		panel.add(button);
-		
 	}
 
 	private void setUpNamePanel() {
@@ -80,19 +77,16 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private void addNameText(JPanel text) {
 		JLabel label = new JLabel(NAME_TEXT , SwingConstants.CENTER);
 		text.add(label, BorderLayout.WEST);
-		
 	}
 
 	private void addBreedText(JPanel text) {
 		JLabel label = new JLabel(BREED_TEXT , SwingConstants.CENTER);
 		text.add(label, BorderLayout.WEST);
-		
 	}
 	
 	@Override
 	public void display() {
 		this.setVisible(true);
-
 	}
 
 	@Override
@@ -101,16 +95,10 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 			this.insertDog();
 			dispose();
 		}
-		
-		
 	}
 
 	private void insertDog() {
 		DogDTO dto = new DogDTO(this.name.getText(), this.breed.getText());
 		this.dogController.addDogToRepository(dto);
-		
 	}
-	
-	
-
 }
