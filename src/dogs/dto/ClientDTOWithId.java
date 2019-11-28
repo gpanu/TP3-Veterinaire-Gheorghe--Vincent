@@ -1,12 +1,12 @@
-package dogs.model;
+package dogs.dto;
 
-public class ClientWithId {
+public class ClientDTOWithId {
 	private String firstName;
 	private String lastName;
 	private String number;
 	public int id;
 		
-	public ClientWithId(String firstName, String lastName, String number, int id) {
+	public ClientDTOWithId(String firstName, String lastName, String number, int id) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.number = number;

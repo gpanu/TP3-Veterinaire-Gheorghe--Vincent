@@ -4,8 +4,8 @@ import java.util.Collection;
 
 import dogs.model.Client;
 import dogs.model.Dog;
-import dogs.repository.Entity;
-import dogs.repository.IRepository;
+import dogs.model.Entity;
+import dogs.model.IRepository;
 
 public class DogRepositorySpy implements IRepository {
 	

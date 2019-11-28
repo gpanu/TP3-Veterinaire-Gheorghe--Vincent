@@ -1,7 +1,7 @@
 package dogs;
 
 import dogs.model.Dog;
-import dogs.repository.IRepository;
+import dogs.model.IRepository;
 
 public class DataSeed {
 

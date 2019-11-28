@@ -1,4 +1,4 @@
-package dogs.repository;
+package dogs.model;
 
 public abstract class Entity {
 	

@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import dogs.controller.DogController;
-import dogs.model.DogDTOWithId;
+import dogs.dto.DogDTOWithId;
 
 public class ShowView extends JDialog implements IView {
 

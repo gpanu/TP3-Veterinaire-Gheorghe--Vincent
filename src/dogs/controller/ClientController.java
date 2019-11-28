@@ -1,6 +1,6 @@
 package dogs.controller;
 
-import dogs.repository.IRepository;
+import dogs.model.IRepository;
 import dogs.view.AddClientView;
 import dogs.view.AddDogView;
 import dogs.view.IView;

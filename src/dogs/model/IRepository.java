@@ -1,4 +1,4 @@
-package dogs.repository;
+package dogs.model;
 
 import java.util.Collection;
 

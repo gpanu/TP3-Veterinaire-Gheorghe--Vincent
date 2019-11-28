@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 
 import dogs.controller.DogController;
 import dogs.controller.IDogController;
-import dogs.model.DogDTO;
+import dogs.dto.DogDTO;
 
 public class AddDogView extends JDialog implements IView, ActionListener {
 

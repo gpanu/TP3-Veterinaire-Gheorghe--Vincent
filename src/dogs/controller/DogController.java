@@ -8,10 +8,10 @@ import java.util.List;
 
 import javax.swing.JDialog;
 
+import dogs.dto.DogDTO;
+import dogs.dto.DogDTOWithId;
 import dogs.model.Dog;
-import dogs.model.DogDTO;
-import dogs.model.DogDTOWithId;
-import dogs.repository.IRepository;
+import dogs.model.IRepository;
 import dogs.view.AddDogView;
 
 public class DogController extends JDialog implements IDogController {

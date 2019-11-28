@@ -1,7 +1,5 @@
 package dogs.model;
 
-import dogs.repository.Entity;
-
 public class Client extends Entity{
 	private String firstName;
 	private String lastName;

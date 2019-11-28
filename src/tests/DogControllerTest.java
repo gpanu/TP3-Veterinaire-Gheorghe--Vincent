@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
 import dogs.controller.DogController;
-import dogs.repository.Repository;
-import dogs.repository.IRepository;
+import dogs.model.IRepository;
+import dogs.model.Repository;
 
 public class DogControllerTest{
 

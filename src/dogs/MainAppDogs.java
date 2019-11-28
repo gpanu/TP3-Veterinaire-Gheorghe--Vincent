@@ -6,8 +6,8 @@ import dogs.controller.IClientController;
 import dogs.controller.IDogController;
 import dogs.controller.IWelcomeController;
 import dogs.controller.WelcomeController;
-import dogs.repository.Repository;
-import dogs.repository.IRepository;
+import dogs.model.IRepository;
+import dogs.model.Repository;
 import dogs.view.WelcomeView;
 
 public class MainAppDogs {

@@ -1,4 +1,4 @@
-package dogs.model;
+package dogs.dto;
 
 public class DogDTOWithId {
 	public String name;

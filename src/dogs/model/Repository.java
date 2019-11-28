@@ -1,11 +1,8 @@
-package dogs.repository;
+package dogs.model;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import dogs.model.Client;
-import dogs.model.Dog;
 
 public class Repository<T extends Entity> implements IRepository<T>{
 	
