@@ -4,22 +4,24 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import dogs.model.Client;
 import dogs.model.Dog;
 
-public class Repository implements IRepository{
+public class Repository<T extends Entity> implements IRepository<T>{
 	
-	private Map<Integer, Dog> dogs = new HashMap<Integer, Dog>();
+	private Map<Integer, T> entities = new HashMap<Integer, T>();
+	
+	public Collection<T> getList(){
+		return this.entities.values();	
+	}
 
-	@Override
-	public void add(Dog dog) {
-		dogs.put(dog.getId(), dog);
+
+	public void add(Entity t) {
+		entities.put(t.getId(), (T) t);
 	}
-	
-	public Collection<Dog> getList(){
-		return this.dogs.values();	
-	}
+
 
 //	public Dog searchById(int id) {
-//		
-//	}
+//	
+//}
 }

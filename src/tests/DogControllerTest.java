@@ -14,7 +14,7 @@ public class DogControllerTest{
 
 	
 	@Test
-	public void WHEN_DogControllerIsAsked_THEN_ItHaveRepo() {
+	public void WHEN_DogControllerIsAsked_THEN_ItHasRepo() {
 		//Arrange
 		IRepository repo = new DogRepositorySpy();
 		
@@ -28,7 +28,7 @@ public class DogControllerTest{
 	}
 	
 	@Test
-	public void WHEN_DogControllerIsAsked_AND_RepoIsDiferent_THEN_ItHaveRepo() {
+	public void WHEN_DogControllerIsAsked_AND_RepoIsDiferent_THEN_ItHasRepo() {
 		//Arrange
 		IRepository repo = new DogRepositorySpy();
 		IRepository repo2 = new DogRepositorySpy();

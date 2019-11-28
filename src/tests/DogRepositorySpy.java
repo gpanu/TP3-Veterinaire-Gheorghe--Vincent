@@ -2,7 +2,9 @@ package tests;
 
 import java.util.Collection;
 
+import dogs.model.Client;
 import dogs.model.Dog;
+import dogs.repository.Entity;
 import dogs.repository.IRepository;
 
 public class DogRepositorySpy implements IRepository {
@@ -10,8 +12,7 @@ public class DogRepositorySpy implements IRepository {
 	boolean isAdd = false;
 	boolean getList = false;
 
-	@Override
-	public void add(Dog dog) {
+	public void add(Entity dog) {
 		// TODO Auto-generated method stub
 		isAdd = true;
 	}
