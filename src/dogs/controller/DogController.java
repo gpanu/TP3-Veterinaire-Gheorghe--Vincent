@@ -11,20 +11,20 @@ import javax.swing.JDialog;
 import dogs.model.Dog;
 import dogs.model.DogDTO;
 import dogs.model.DogDTOWithId;
-import dogs.repository.IDogRepository;
-import dogs.view.AddView;
+import dogs.repository.IRepository;
+import dogs.view.AddDogView;
 
 public class DogController extends JDialog implements IDogController {
 	
-	private IDogRepository repository;
+	private IRepository repository;
 	
-	public DogController(IDogRepository repository) {
+	public DogController(IRepository repository) {
 		this.repository = repository;
 	}
 
 	@Override
-	public void goToCreate() {
-		IView addDogView = new AddView(this);
+	public void createDogView() {
+		IView addDogView = new AddDogView(this);
 		addDogView.display();
 	}
 
@@ -53,7 +53,7 @@ public class DogController extends JDialog implements IDogController {
 		
 	}
 
-	public IDogRepository getRepo() {
+	public IRepository getRepo() {
 		// TODO Auto-generated method stub
 		return this.repository;
 	}

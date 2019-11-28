@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import dogs.model.Dog;
 
-public interface IDogRepository {
+public interface IRepository {
 
 	void add(Dog dog);
 

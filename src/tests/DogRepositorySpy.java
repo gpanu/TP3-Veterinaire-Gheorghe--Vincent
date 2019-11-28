@@ -3,9 +3,9 @@ package tests;
 import java.util.Collection;
 
 import dogs.model.Dog;
-import dogs.repository.IDogRepository;
+import dogs.repository.IRepository;
 
-public class DogRepositorySpy implements IDogRepository {
+public class DogRepositorySpy implements IRepository {
 	
 	boolean isAdd = false;
 	boolean getList = false;

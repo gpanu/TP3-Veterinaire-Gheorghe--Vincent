@@ -4,7 +4,7 @@ import dogs.model.DogDTO;
 
 public interface IDogController {
 
-	void goToCreate();
+	void createDogView();
 
 	void addDogToRepository(DogDTO dto);
 

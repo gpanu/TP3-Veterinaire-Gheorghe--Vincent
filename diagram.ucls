@@ -64,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="dogs.view.AddView" project="Dogs" file="/Dogs/src/dogs/view/AddView.java" 
+  <class id="8" language="java" name="dogs.view.AddDogView" project="Dogs" file="/Dogs/src/dogs/view/AddDogView.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="951" y="606"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="dogs.repository.DogRepository" project="Dogs" 
-    file="/Dogs/src/dogs/repository/DogRepository.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="dogs.repository.Repository" project="Dogs" 
+    file="/Dogs/src/dogs/repository/Repository.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1940" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="15" language="java" name="dogs.repository.IDogRepository" project="Dogs" 
-    file="/Dogs/src/dogs/repository/IDogRepository.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="15" language="java" name="dogs.repository.IRepository" project="Dogs" 
+    file="/Dogs/src/dogs/repository/IRepository.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1596" y="905"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
