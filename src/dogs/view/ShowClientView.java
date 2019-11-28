@@ -1,15 +1,11 @@
 package dogs.view;
 
 import java.util.List;
-
 import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import dogs.controller.ClientController;
-import dogs.controller.DogController;
 import dogs.dto.ClientDTOWithId;
-import dogs.dto.DogDTOWithId;
 
 public class ShowClientView extends JDialog implements IView{
 
@@ -17,6 +13,7 @@ public class ShowClientView extends JDialog implements IView{
 	private static final int FIRST_NAME_COLUMN = 1;
 	private static final int LAST_NAME_COLUMN = 2;
 	private static final int PHONE_NUMBER_COLUMN = 3;
+	private static final int MAX_COLUMN = 4;
 	private ClientController clientController;
 	private List<ClientDTOWithId> list;
 
@@ -35,7 +32,7 @@ public class ShowClientView extends JDialog implements IView{
 	private void setUPTable() {	
 		String[] tab = {"id","First Name","Last Name","Phone number"};
 		final int SIZE = list.size();
-		String[][] tab2D = new String[SIZE][3];
+		String[][] tab2D = new String[SIZE][MAX_COLUMN];
 		for(int i = 0; i < SIZE; i++) {
 			tab2D [i][ID_COLUMN] = Integer.toString(list.get(i).id);
 			tab2D [i][FIRST_NAME_COLUMN] = list.get(i).firstName;

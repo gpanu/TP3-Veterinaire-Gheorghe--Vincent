@@ -1,11 +1,16 @@
 package dogs.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import dogs.dto.ClientDTO;
+import dogs.dto.ClientDTOWithId;
 import dogs.model.Client;
-import dogs.model.Dog;
 import dogs.model.IRepository;
 import dogs.view.AddClientView;
 import dogs.view.IView;
+import dogs.view.ShowClientView;
+import dogs.view.ShowDogView;
 
 public class ClientController implements IClientController {
 
@@ -24,5 +29,18 @@ public class ClientController implements IClientController {
 	public void addClientToRepository(ClientDTO dto) {
 		Client client = new Client(dto.firstName, dto.lastName, dto.number);
 		this.repository.add(client);
+	}
+
+	@Override
+	public void showClient() {
+		Collection<Client> list = repository.getList(); 
+		List<ClientDTOWithId> clients = new ArrayList<ClientDTOWithId>();
+		for(Client client : list) {
+			ClientDTOWithId dto = new ClientDTOWithId(client.getFirstName(),client.getLastName(),client.getNumber(),client.getId());
+			clients.add(dto);
+		}
+		
+		IView ShowClientView = new ShowClientView(this, clients);
+		ShowClientView.display();
 	}
 }

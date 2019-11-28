@@ -33,4 +33,8 @@ public class WelcomeController implements IWelcomeController {
 		this.clientController.createClientView();
 	}
 	
+	public void wantToShowClient() {
+		this.clientController.showClient();
+	}
+	
 }

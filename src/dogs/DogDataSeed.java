@@ -3,16 +3,16 @@ package dogs;
 import dogs.model.Dog;
 import dogs.model.IRepository;
 
-public class DataSeed {
+public class DogDataSeed {
 
-	private IRepository repository;
+	private IRepository<Dog> repository;
 
-	public DataSeed(IRepository repository) {
+	public DogDataSeed(IRepository<Dog> repository) {
 		this.repository = repository;
 		this.tableSeeder(repository);
 	}
 	
-	public void tableSeeder (IRepository repository) {
+	public void tableSeeder (IRepository<Dog> repository) {
 		this.repository.add(new Dog("bob","boxer"));
 		this.repository.add(new Dog("rex","pitbull"));
 		this.repository.add(new Dog("chup","golden"));

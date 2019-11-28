@@ -9,5 +9,7 @@ public interface IWelcomeController {
 	void wantShowDogs();
 
 	void wantToCreateClient();
+
+	void wantToShowClient();
 	
 }

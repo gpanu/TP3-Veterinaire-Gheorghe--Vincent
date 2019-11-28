@@ -25,6 +25,8 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 	private static final String BUTTON_ADD_ACTION = "AddDog";
 	private static final String ADD_CLIENT_TITLE = "Add client";
 	private static final String BUTTON_ADD_CLIENT = "AddClient";
+	private static final String SHOW_CLIENT_TITLE = "Show client list";
+	private static final String BUTTON_SHOW_CLIENT = "ShowClient";
 	private String SHOW_TITLE = "Show dog list";
 	private String BUTTON_SHOW_ACTION = "SHOW_DOGS";
 	
@@ -33,9 +35,7 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 	
 	public WelcomeView(IWelcomeController controller) {
 		super(VIEW_TITLE);
-		
 		this.controller = controller;
-		
 		this.initialize();
 		this.setUpComponents();
 	}
@@ -83,6 +83,7 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		addButton(action, VIEW_TITLE, BUTTON_ADD_ACTION);
 		addButton(action, SHOW_TITLE, BUTTON_SHOW_ACTION);
 		addButton(action, ADD_CLIENT_TITLE, BUTTON_ADD_CLIENT);
+		addButton(action, SHOW_CLIENT_TITLE, BUTTON_SHOW_CLIENT);
 	}
 	
 	private void addButton(JPanel panel, String message, String buttonAction) {
@@ -105,7 +106,14 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		if(act.getActionCommand().equals(BUTTON_ADD_CLIENT)) {
 			this.addClientAsked();
 		}
+		if(act.getActionCommand().equals(BUTTON_SHOW_CLIENT)) {
+			this.showClientAsked();
+		}
 		
+	}
+
+	private void showClientAsked() {
+		this.controller.wantToShowClient();
 	}
 
 	private void addClientAsked() {
@@ -114,11 +122,9 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 
 	private void showDogsAsked() {
 		this.controller.wantShowDogs();
-		
 	}
 
 	private void actionAndDogAsked() {
 		this.controller.wantCreateDog();
 	}
-	
 }

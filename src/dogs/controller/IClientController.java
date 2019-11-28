@@ -4,4 +4,6 @@ public interface IClientController {
 
 	void createClientView();
 
+	void showClient();
+
 }
