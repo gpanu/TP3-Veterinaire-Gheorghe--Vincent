@@ -15,7 +15,7 @@ import dogs.controller.DogController;
 import dogs.controller.IDogController;
 import dogs.model.DogDTO;
 
-public class AddView extends JDialog implements IView, ActionListener {
+public class AddDogView extends JDialog implements IView, ActionListener {
 
 	private static final int MAX_LENGTH = 40;
 	private IDogController dogController;
@@ -27,7 +27,7 @@ public class AddView extends JDialog implements IView, ActionListener {
 	private String BUTTON_ACTION = "AddDog";
 	 
 	
-	public AddView(DogController dogController) {
+	public AddDogView(DogController dogController) {
 		super();
 		this.dogController = dogController;
 		this.setUpComponents();

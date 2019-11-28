@@ -20,11 +20,11 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 	
 	private static final String VIEW_TITLE = "Nos amis les chiens";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
-	
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
-
 	private static final Dimension DEFAULT_SIZE = new Dimension(475, 530);
-	private static final String BUTTON_ADD_ACTION = "ADD_DOG";
+	private static final String BUTTON_ADD_ACTION = "AddDog";
+	private static final String ADD_CLIENT_TITLE = "Add client";
+	private static final String BUTTON_ADD_CLIENT = "AddClient";
 	private String SHOW_TITLE = "Show dog list";
 	private String BUTTON_SHOW_ACTION = "SHOW_DOGS";
 	
@@ -82,6 +82,7 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		this.add(action, BorderLayout.SOUTH);
 		addButton(action, VIEW_TITLE, BUTTON_ADD_ACTION);
 		addButton(action, SHOW_TITLE, BUTTON_SHOW_ACTION);
+		addButton(action, ADD_CLIENT_TITLE, BUTTON_ADD_CLIENT);
 	}
 	
 	private void addButton(JPanel panel, String message, String buttonAction) {
@@ -101,7 +102,14 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		if(act.getActionCommand().equals(BUTTON_SHOW_ACTION)) {
 			this.showDogsAsked();
 		}
+		if(act.getActionCommand().equals(BUTTON_ADD_CLIENT)) {
+			this.addClientAsked();
+		}
 		
+	}
+
+	private void addClientAsked() {
+		this.controller.wantToCreateClient();
 	}
 
 	private void showDogsAsked() {
