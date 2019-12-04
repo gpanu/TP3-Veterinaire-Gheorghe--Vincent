@@ -15,9 +15,11 @@ import dogs.view.AddDogView;
 public class DogController extends JDialog implements IDogController {
 	
 	private IRepository<Dog> repository;
+	private IClientController clientController;
 	
-	public DogController(IRepository<Dog> repository) {
+	public DogController(IRepository<Dog> repository, IClientController clientController) {
 		this.repository = repository;
+		this.clientController = clientController;
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class DogController extends JDialog implements IDogController {
 
 	@Override
 	public void addDogToRepository(DogDTO dto) {
-		Dog dog = new Dog(dto.name, dto.breed);
+		Dog dog = new Dog(dto.name, dto.breed, dto.ownerId);
 		this.repository.add(dog);
 	}
 
@@ -37,11 +39,11 @@ public class DogController extends JDialog implements IDogController {
 		Collection<Dog> list = repository.getList(); 
 		List<DogDTOWithId> dogs = new ArrayList<DogDTOWithId>();
 		for(Dog dog : list) {
-			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId());
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
 			dogs.add(dto);
 		}
 		
-		IView ShowDogView = new ShowDogView(this, dogs);
+		IView ShowDogView = new ShowDogView(this, dogs, clientController.getDTOList());
 		ShowDogView.display();
 	}
 

@@ -13,8 +13,8 @@ public class DogDataSeed {
 	}
 	
 	public void tableSeeder (IRepository<Dog> repository) {
-		this.repository.add(new Dog("bob","boxer"));
-		this.repository.add(new Dog("rex","pitbull"));
-		this.repository.add(new Dog("chup","golden"));
+		this.repository.add(new Dog("bob","boxer", 1));
+		this.repository.add(new Dog("rex","pitbull", 2));
+		this.repository.add(new Dog("chup","golden", 3));
 	}
 }

@@ -4,13 +4,15 @@ public class Dog extends Entity{  // La classe est très simple ici mais il pourr
 	
 	private String name;
 	private String breed;
+	private int ownerId;
 	private static int nextDog = 1;
 	
-	public Dog(String name, String breed) {
+	public Dog(String name, String breed, int ownerId) {
 		//TODO: calculer l'id --> un no unique pour identifier un chien
 		super(nextDog);
 		this.name = name;
 		this.breed = breed;
+		this.ownerId = ownerId;
 		incrementId();
 	}
 
@@ -25,6 +27,9 @@ public class Dog extends Entity{  // La classe est très simple ici mais il pourr
 	public String getName() {
 		return name;
 	}
+	public int getOwnerId() {
+		return this.ownerId;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -35,5 +40,9 @@ public class Dog extends Entity{  // La classe est très simple ici mais il pourr
 	public void setBreed(String breed) {
 		this.breed = breed;
 	}
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
 
 }

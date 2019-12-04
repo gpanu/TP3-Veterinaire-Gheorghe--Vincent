@@ -37,8 +37,8 @@ public class MainAppDogs {
 	}
 
 	private void createControllers() {
-		IDogController dogController = new DogController(this.dogRepository);
 		IClientController clientController = new ClientController(this.clientRepository);
+		IDogController dogController = new DogController(this.dogRepository,clientController);
 		IWelcomeController appController = new WelcomeController(dogController, clientController);
 		appController.startApplication();
 	}

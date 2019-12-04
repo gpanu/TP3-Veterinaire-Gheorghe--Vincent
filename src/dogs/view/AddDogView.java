@@ -21,14 +21,19 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private IDogController dogController;
 	private JTextField name = new JTextField(MAX_LENGTH);
 	private JTextField breed = new JTextField(MAX_LENGTH);
+	private JTextField ownerIdString = new JTextField(MAX_LENGTH);
+	private JPanel inputPanel = new JPanel();
 	private String NAME_TEXT = "Name:";
 	private String BREED_TEXT = "Race:";
+	private static final String OWNER_TEXT = "Owner: ";
 	private String VIEW_TITLE = "Add dog";
 	private String BUTTON_ACTION = "AddDog";
+	
 	 
 	
 	public AddDogView(DogController dogController) {
 		super();
+		this.inputPanel.setLayout(new BorderLayout());
 		this.dogController = dogController;
 		this.setUpComponents();
 	}
@@ -36,6 +41,8 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private void setUpComponents() {
 		this.setUpBreedPanel();
 		this.setUpNamePanel();
+		this.setUpOwnerPanel();
+		this.add(inputPanel, BorderLayout.CENTER);
 		this.setUpActionPanel();
 		this.pack();
 	}
@@ -56,7 +63,7 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 
 	private void setUpNamePanel() {
 		JPanel namePanel = new JPanel();
-		this.add(namePanel, BorderLayout.NORTH);
+		this.inputPanel.add(namePanel, BorderLayout.NORTH);
 		
 		addNameText(namePanel);
 		addTextLabel(namePanel, name);
@@ -68,10 +75,24 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 
 	private void setUpBreedPanel() {
 		JPanel breedPanel = new JPanel();
-		this.add(breedPanel, BorderLayout.CENTER);
+		this.inputPanel.add(breedPanel, BorderLayout.CENTER);
 		
 		addBreedText(breedPanel);
 		addTextLabel(breedPanel, breed);
+	}
+	
+	private void setUpOwnerPanel() {
+		JPanel ownerPanel = new JPanel();
+		this.inputPanel.add(ownerPanel, BorderLayout.SOUTH);
+		
+		addOwnerId(ownerPanel);
+		addTextLabel(ownerPanel, ownerIdString);
+	}
+
+	private void addOwnerId(JPanel ownerId) {
+		// TODO Auto-generated method stub
+		JLabel label = new JLabel(OWNER_TEXT , SwingConstants.CENTER);
+		ownerId.add(label, BorderLayout.WEST);
 	}
 
 	private void addNameText(JPanel text) {
@@ -98,7 +119,9 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	}
 
 	private void insertDog() {
-		DogDTO dto = new DogDTO(this.name.getText(), this.breed.getText());
+		
+		int ownerId = Integer.parseInt(this.ownerIdString.getText());
+		DogDTO dto = new DogDTO(this.name.getText(), this.breed.getText(), ownerId);
 		this.dogController.addDogToRepository(dto);
 	}
 }

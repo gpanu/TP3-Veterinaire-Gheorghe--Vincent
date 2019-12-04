@@ -32,15 +32,19 @@ public class ClientController implements IClientController {
 	}
 
 	@Override
-	public void showClient() {
-		Collection<Client> list = repository.getList(); 
-		List<ClientDTOWithId> clients = new ArrayList<ClientDTOWithId>();
-		for(Client client : list) {
-			ClientDTOWithId dto = new ClientDTOWithId(client.getFirstName(),client.getLastName(),client.getNumber(),client.getId());
-			clients.add(dto);
-		}
+	public void showClient() { 
+		List<ClientDTOWithId> clients = getDTOList();
 		
 		IView ShowClientView = new ShowClientView(this, clients);
 		ShowClientView.display();
+	}
+
+	public List<ClientDTOWithId> getDTOList() {
+		List<ClientDTOWithId> clients = new ArrayList<ClientDTOWithId>();
+		for(Client client : this.repository.getList()) {
+			ClientDTOWithId dto = new ClientDTOWithId(client.getFirstName(),client.getLastName(),client.getNumber(),client.getId());
+			clients.add(dto);
+		}
+		return clients;
 	}
 }
