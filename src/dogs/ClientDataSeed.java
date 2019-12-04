@@ -15,5 +15,6 @@ public class ClientDataSeed {
 		this.repository.add(new Client("Michel","Tremblay","418 555 3215"));
 		this.repository.add(new Client("Dima","Bilan","+7 849 5561215"));
 		this.repository.add(new Client("Misha","Beliy", "514 322 4859"));
+		this.repository.add(new Client("Robert","DeDorval", "514 422 48569"));
 	}
 }

@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ClientControllerTest {
+public class WelcomControllerTest {
 
 	@Test
-	public void test() {
+	public void WHEN_WelcomeControllerIsAsked_THEN_() {
 		fail("Not yet implemented");
 	}
 

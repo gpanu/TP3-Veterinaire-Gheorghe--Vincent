@@ -16,7 +16,7 @@ public class DogControllerTest{
 	@Test
 	public void WHEN_DogControllerIsAsked_THEN_ItHasRepo() {
 		//Arrange
-		IRepository repo = new DogRepositorySpy();
+		IRepository repo = new ReposytoryMock();
 		
 		//Act
 		DogController dogController = new DogController(repo);
@@ -30,8 +30,8 @@ public class DogControllerTest{
 	@Test
 	public void WHEN_DogControllerIsAsked_AND_RepoIsDiferent_THEN_ItHasRepo() {
 		//Arrange
-		IRepository repo = new DogRepositorySpy();
-		IRepository repo2 = new DogRepositorySpy();
+		IRepository repo = new ReposytoryMock();
+		IRepository repo2 = new ReposytoryMock();
 		
 		//Act
 		DogController dogController = new DogController(repo2);
