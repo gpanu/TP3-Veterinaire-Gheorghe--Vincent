@@ -10,4 +10,6 @@ public interface IDogController {
 
 	void goToShow();
 
+	void showConfirmationAsked();
+
 }

@@ -18,16 +18,16 @@ import util.image.ImageUtil;
 
 public class WelcomeView extends JFrame implements IView, ActionListener{   // Configurer Eclipse pour ignorer les avertissements sur serial Id
 	
-	private static final String VIEW_TITLE = "Add dog";
+	private static final String VIEW_TITLE = "Ajouter un chien";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
 	private static final Dimension DEFAULT_SIZE = new Dimension(475, 530);
 	private static final String BUTTON_ADD_ACTION = "AddDog";
-	private static final String ADD_CLIENT_TITLE = "Add client";
+	private static final String ADD_CLIENT_TITLE = "Ajouter un client";
 	private static final String BUTTON_ADD_CLIENT = "AddClient";
-	private static final String SHOW_CLIENT_TITLE = "Show client list";
+	private static final String SHOW_CLIENT_TITLE = "Afficher la liste des clients";
 	private static final String BUTTON_SHOW_CLIENT = "ShowClient";
-	private String SHOW_TITLE = "Show dog list";
+	private String SHOW_TITLE = "Afficher la liste des chiens";
 	private String BUTTON_SHOW_ACTION = "SHOW_DOGS";
 	
 	private IWelcomeController controller;		// Pas encore utilisé dans cette version...
@@ -38,6 +38,7 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		this.controller = controller;
 		this.initialize();
 		this.setUpComponents();
+		this.pack();
 	}
 	
 	@Override

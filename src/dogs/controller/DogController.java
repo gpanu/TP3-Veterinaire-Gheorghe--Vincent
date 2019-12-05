@@ -10,6 +10,7 @@ import dogs.dto.DogDTO;
 import dogs.dto.DogDTOWithId;
 import dogs.model.Dog;
 import dogs.model.IRepository;
+import dogs.view.AddDogConfirmationView;
 import dogs.view.AddDogView;
 
 public class DogController extends JDialog implements IDogController {
@@ -50,6 +51,13 @@ public class DogController extends JDialog implements IDogController {
 	public IRepository<Dog> getRepo() {
 		// TODO Auto-generated method stub
 		return this.repository;
+	}
+
+	@Override
+	public void showConfirmationAsked() {
+		// TODO Auto-generated method stub
+		IView confirmation = new AddDogConfirmationView(this);
+		confirmation.display();
 	}
 	
 

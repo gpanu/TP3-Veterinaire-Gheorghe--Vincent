@@ -28,11 +28,11 @@ public class ShowDogView extends JDialog implements IView {
 		this.Dogslist = Dogslist;
 		this.clientsList = clientsList;
 		this.setUpComponents();
+		this.pack();
 	}
 
 	private void setUpComponents() {
 		this.setUPTable();
-		this.pack();
 	}
 
 	private void setUPTable() {	

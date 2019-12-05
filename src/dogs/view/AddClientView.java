@@ -17,11 +17,11 @@ import dogs.dto.DogDTO;
 public class AddClientView extends JDialog implements IView, ActionListener {
 
 	private static final int MAX_LENGTH = 40;
-	private static final String FIRST_NAME_TEXT = "First Name:";
-	private static final String LAST_NAME_TEXT = "Last Name:";
-	private static final String BUTTON_TITLE = "Add client";
+	private static final String FIRST_NAME_TEXT = "Prenom:";
+	private static final String LAST_NAME_TEXT = "Nom:";
+	private static final String BUTTON_TITLE = "Ajouter ce client";
 	private static final String BUTTON_ACTION = "AddClient";
-	private static final String NUMBER_TEXT = "Phone number:";
+	private static final String NUMBER_TEXT = "Numero de telephone:";
 	private ClientController clientController;
 	private JTextField firstName = new JTextField(MAX_LENGTH);
 	private JTextField lastName = new JTextField(MAX_LENGTH);
