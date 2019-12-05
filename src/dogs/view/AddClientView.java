@@ -12,7 +12,6 @@ import javax.swing.SwingConstants;
 
 import dogs.controller.ClientController;
 import dogs.dto.ClientDTO;
-import dogs.dto.DogDTO;
 
 public class AddClientView extends JDialog implements IView, ActionListener {
 

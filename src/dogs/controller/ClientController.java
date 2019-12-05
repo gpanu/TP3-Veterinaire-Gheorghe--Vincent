@@ -1,7 +1,6 @@
 package dogs.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import dogs.dto.ClientDTO;
 import dogs.dto.ClientDTOWithId;
@@ -10,7 +9,6 @@ import dogs.model.IRepository;
 import dogs.view.AddClientView;
 import dogs.view.IView;
 import dogs.view.ShowClientView;
-import dogs.view.ShowDogView;
 
 public class ClientController implements IClientController {
 

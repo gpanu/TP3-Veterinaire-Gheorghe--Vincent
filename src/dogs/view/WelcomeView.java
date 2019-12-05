@@ -2,7 +2,6 @@ package dogs.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +17,7 @@ import util.image.ImageUtil;
 
 public class WelcomeView extends JFrame implements IView, ActionListener{   // Configurer Eclipse pour ignorer les avertissements sur serial Id
 	
+	private static final String WINDOW_TITLE = "Clinique vétérinaire";
 	private static final String VIEW_TITLE = "Ajouter un chien";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
@@ -34,7 +34,7 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 	
 	
 	public WelcomeView(IWelcomeController controller) {
-		super(VIEW_TITLE);
+		super(WINDOW_TITLE);
 		this.controller = controller;
 		this.initialize();
 		this.setUpComponents();
@@ -93,7 +93,6 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		button.addActionListener(this);
 		
 		panel.add(button);
-		
 	}
 
 	@Override
