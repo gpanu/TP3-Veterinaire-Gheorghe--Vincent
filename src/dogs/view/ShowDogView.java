@@ -1,5 +1,10 @@
 package dogs.view;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,7 +13,7 @@ import dogs.controller.DogController;
 import dogs.dto.ClientDTOWithId;
 import dogs.dto.DogDTOWithId;
 
-public class ShowDogView extends JDialog implements IView {
+public class ShowDogView extends JDialog implements IView, ActionListener {
 
 	private static final int ID_COLUMN = 0;
 	private static final int NAME_COLUMN = 1;
@@ -18,6 +23,8 @@ public class ShowDogView extends JDialog implements IView {
 	private static final int OWNER_LAST_NAME = 5;
 	private static final int OWNER_NUMBER = 6;
 	private static final int MAX_COLUMN = 7;
+	private static final String VIEW_TITLE = "Supprimer un chien";
+	private static final String BUTTON_ACTION = "DeleteDog";
 	private DogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
@@ -33,6 +40,7 @@ public class ShowDogView extends JDialog implements IView {
 
 	private void setUpComponents() {
 		this.setUPTable();
+		this.setUpActionPanel();
 	}
 
 	private void setUPTable() {	
@@ -52,9 +60,31 @@ public class ShowDogView extends JDialog implements IView {
 		JScrollPane scr = new JScrollPane(table);
 		this.add(scr);
 	}
+	
+	private void setUpActionPanel() {
+		JPanel action = new JPanel();
+		this.add(action, BorderLayout.SOUTH);
+		addButton(action, VIEW_TITLE , BUTTON_ACTION);
+	}
+	
+	private void addButton(JPanel panel, String message, String buttonAction) {
+		JButton button = new JButton(message);
+		button.setActionCommand(buttonAction);
+		button.addActionListener(this);
+		
+		panel.add(button);
+	}
 
 	@Override
 	public void display() {
 		this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent act) {
+		if(act.getActionCommand().equals(BUTTON_ACTION)){
+			this.dogController.showDeleteDogViewAsked();
+		}
+		
 	}
 }

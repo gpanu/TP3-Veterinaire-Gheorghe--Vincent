@@ -12,6 +12,8 @@ import dogs.model.Dog;
 import dogs.model.IRepository;
 import dogs.view.AddDogConfirmationView;
 import dogs.view.AddDogView;
+import dogs.view.DeleteDogConfirmationView;
+import dogs.view.DeleteDogView;
 
 public class DogController extends JDialog implements IDogController {
 	
@@ -59,6 +61,16 @@ public class DogController extends JDialog implements IDogController {
 		IView confirmation = new AddDogConfirmationView(this);
 		confirmation.display();
 	}
-	
 
+	public void showDeleteDogViewAsked() {
+		// TODO Auto-generated method stub
+		IView deleteView = new DeleteDogView(this);
+		deleteView.display();
+	}
+
+	public void showDeleteDogConfirmation(String idToDelete) {
+		// TODO Auto-generated method stub
+		IView deleteView = new DeleteDogConfirmationView(this, idToDelete);
+		deleteView.display();
+	}
 }
