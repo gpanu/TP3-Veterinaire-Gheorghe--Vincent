@@ -25,7 +25,7 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private JPanel inputPanel = new JPanel();
 	private String NAME_TEXT = "Name:";
 	private String BREED_TEXT = "Race:";
-	private static final String OWNER_TEXT = "Owner: ";
+	private static final String OWNER_TEXT = "Owner (id): ";
 	private String VIEW_TITLE = "Add dog";
 	private String BUTTON_ACTION = "AddDog";
 	
