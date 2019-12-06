@@ -16,6 +16,9 @@ public class Repository<T extends Entity> implements IRepository<T>{
 		entities.put(objectToAdd.getId(), objectToAdd);
 	}
 
+	public Collection<Integer> getKeys() {
+		return this.entities.keySet();	}
+
 //	public Dog searchById(int id) {
 //	
 //}

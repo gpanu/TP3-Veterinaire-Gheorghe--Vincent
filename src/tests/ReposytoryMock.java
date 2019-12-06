@@ -18,4 +18,10 @@ public class ReposytoryMock implements IRepository {
 
 	}
 
+	@Override
+	public Collection getKeys() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

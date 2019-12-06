@@ -20,7 +20,7 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 	private static final String CONFIRM_BUTTON_ACTION = "Confirm";
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id - ");
 	private DogController dogController;
-	private static String id;
+	private String id;
 
 	public DeleteDogConfirmationView(DogController dogController, String id) {
 		super();
@@ -59,13 +59,16 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 
 	@Override
 	public void actionPerformed(ActionEvent act) {
-		if(act.getActionCommand().equals(NO_BUTTON_TITLE)) {
-			this.discardChange();
+		if(act.getActionCommand().equals(EXIT_BUTTON_ACTION)) {
+			dispose();
+		}
+		if(act.getActionCommand().equals(CONFIRM_BUTTON_ACTION)) {
+			this.deleteDog();
+			dispose();
 		}
 	}
 
-	private void discardChange() {
-		// TODO Auto-generated method stub
-		
+	private void deleteDog() {
+		this.dogController.deleteDogFromList(this.id);
 	}
 }

@@ -34,6 +34,7 @@ public class DogController extends JDialog implements IDogController {
 	@Override
 	public void addDogToRepository(DogDTO dto) {
 		Dog dog = new Dog(dto.name, dto.breed, dto.ownerId);
+		//ICI EXCEPTION SI OWNER INEXISTANT
 		this.repository.add(dog);
 	}
 
@@ -72,5 +73,11 @@ public class DogController extends JDialog implements IDogController {
 		// TODO Auto-generated method stub
 		IView deleteView = new DeleteDogConfirmationView(this, idToDelete);
 		deleteView.display();
+	}
+
+	public void deleteDogFromList(String id) {
+		Collection<Integer> list = repository.getKeys(); 
+		int idInInt = Integer.parseInt(id);
+		list.remove(idInInt);
 	}
 }

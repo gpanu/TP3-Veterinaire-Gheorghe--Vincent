@@ -120,7 +120,6 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	}
 
 	private void insertDog() {
-		
 		int ownerId = Integer.parseInt(this.ownerIdString.getText());
 		DogDTO dto = new DogDTO(this.name.getText(), this.breed.getText(), ownerId);
 		this.dogController.addDogToRepository(dto);

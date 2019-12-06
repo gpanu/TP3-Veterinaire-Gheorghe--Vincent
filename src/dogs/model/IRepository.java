@@ -6,5 +6,6 @@ public interface IRepository<T> {
 
 	Collection<T> getList();
 	void add(T t);
+	Collection<Integer> getKeys();
 
 }
