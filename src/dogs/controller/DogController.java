@@ -60,20 +60,20 @@ public class DogController extends JDialog implements IDogController {
 	@Override
 	public void showConfirmationAsked() {
 		// TODO Auto-generated method stub
-		IView confirmation = new AddDogConfirmationView(this);
+		IView confirmation = new AddDogConfirmationView();
 		confirmation.display();
 		this.dispose();
 	}
 
-	public void showDeleteDogViewAsked() {
+	public void showDeleteDogViewAsked(ShowDogView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogView(this);
+		IView deleteView = new DeleteDogView(this, showDogView);
 		deleteView.display();
 	}
 
-	public void showDeleteDogConfirmation(String idToDelete) {
+	public void showDeleteDogConfirmation(String idToDelete, ShowDogView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogConfirmationView(this, idToDelete);
+		IView deleteView = new DeleteDogConfirmationView(this, idToDelete, showDogView);
 		deleteView.display();
 	}
 

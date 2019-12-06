@@ -21,10 +21,12 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 	private static final String BUTTON_ACTION = "DeleteDog";
 	private DogController dogController;
 	private JTextField dogIdField = new JTextField(MAX_LENGTH);
+	private ShowDogView showDogView;
 
-	public DeleteDogView(DogController dogController) {
+	public DeleteDogView(DogController dogController, ShowDogView showDogView) {
 		super();
 		this.dogController = dogController;
+		this.showDogView = showDogView;
 		this.setUpComponents();
 		this.pack();
 	}
@@ -79,12 +81,6 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 	}
 
 	private void deleteDogConfirmation() {
-		this.dogController.showDeleteDogConfirmation(this.dogIdField.getText());	
+		this.dogController.showDeleteDogConfirmation(this.dogIdField.getText(), this.showDogView);	
 	}
-	
-	private void deleteDog() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

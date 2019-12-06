@@ -88,7 +88,7 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
-			this.dogController.showDeleteDogViewAsked();
+			this.dogController.showDeleteDogViewAsked(this);
 		}
 		if(act.getActionCommand().equals(BUTTON_SEARCH)){
 			this.dogController.showSearchViewDogAsked();
