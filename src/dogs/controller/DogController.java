@@ -20,6 +20,7 @@ public class DogController extends JDialog implements IDogController {
 	
 	private IRepository<Dog> repository;
 	private IClientController clientController;
+	private List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
 	
 	public DogController(IRepository<Dog> repository, IClientController clientController) {
 		this.repository = repository;
@@ -86,16 +87,25 @@ public class DogController extends JDialog implements IDogController {
 	public void searchBreed(String breed) {
 		Collection<Dog> list = this.repository.getList();
 		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
-		list.forEach(dog -> {if(dog.getBreed() == breed) {
+//		list.forEach(dog -> {if(dog.getBreed() == breed) {
+//			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
+//			newListDogs.add(dto);}
+//		});
+		for(Dog dog : list) {
 			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
-			newListDogs.add(dto);}
-		});
-		goToShow();
+			if(dto.breed.equals(breed)) {newListDogs.add(dto);}
+			
+		}
+		IView ShowDogView = new ShowDogView(this, newListDogs, clientController.getDTOList());
+		ShowDogView.display();
 	}
 
 	public void showSearchViewDogAsked() {
 		IView searchView = new SearchView(this);
-		//deleteView.display();
+		searchView.display();
 	}
 	
+	public void showSearchedDog(String breed) {
+		searchBreed(breed);
+	}
 }
