@@ -87,10 +87,6 @@ public class DogController extends JDialog implements IDogController {
 	public void searchBreed(String breed) {
 		Collection<Dog> list = this.repository.getList();
 		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
-//		list.forEach(dog -> {if(dog.getBreed() == breed) {
-//			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
-//			newListDogs.add(dto);}
-//		});
 		for(Dog dog : list) {
 			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
 			if(dto.breed.equals(breed)) {newListDogs.add(dto);}
