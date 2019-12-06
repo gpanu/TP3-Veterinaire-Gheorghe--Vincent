@@ -2,15 +2,17 @@ package dogs.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JDialog;
 import dogs.dto.ClientDTO;
 import dogs.dto.ClientDTOWithId;
 import dogs.model.Client;
 import dogs.model.IRepository;
+import dogs.view.AddClientConfirmationView;
 import dogs.view.AddClientView;
 import dogs.view.IView;
 import dogs.view.ShowClientView;
 
-public class ClientController implements IClientController {
+public class ClientController extends JDialog implements IClientController {
 
 	private IRepository<Client> repository;
 
@@ -33,7 +35,7 @@ public class ClientController implements IClientController {
 	public void showClient() { 
 		List<ClientDTOWithId> clients = getDTOList();
 		
-		IView ShowClientView = new ShowClientView(this, clients);
+		IView ShowClientView = new ShowClientView(clients);
 		ShowClientView.display();
 	}
 
@@ -44,5 +46,11 @@ public class ClientController implements IClientController {
 			clients.add(dto);
 		}
 		return clients;
+	}
+
+	public void showAddConfirmation() {
+		IView confirmation = new AddClientConfirmationView();
+		confirmation.display();
+		this.dispose();
 	}
 }

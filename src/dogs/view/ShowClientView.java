@@ -4,7 +4,6 @@ import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import dogs.controller.ClientController;
 import dogs.dto.ClientDTOWithId;
 
 public class ShowClientView extends JDialog implements IView{
@@ -16,7 +15,7 @@ public class ShowClientView extends JDialog implements IView{
 	private static final int MAX_COLUMN = 4;
 	private List<ClientDTOWithId> list;
 
-	public ShowClientView(ClientController clientController, List<ClientDTOWithId> list) {
+	public ShowClientView(List<ClientDTOWithId> list) {
 		super();
 		this.list = list;
 		this.setUpComponents();

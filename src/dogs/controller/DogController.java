@@ -59,7 +59,7 @@ public class DogController extends JDialog implements IDogController {
 	@Override
 	public void showConfirmationAsked() {
 		// TODO Auto-generated method stub
-		IView confirmation = new AddDogConfirmationView(this);
+		IView confirmation = new AddDogConfirmationView();
 		confirmation.display();
 		this.dispose();
 	}

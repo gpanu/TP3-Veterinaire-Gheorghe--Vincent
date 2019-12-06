@@ -108,6 +108,7 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
 			this.insertClient();
+			this.clientController.showAddConfirmation();
 			dispose();
 		}
 	}
