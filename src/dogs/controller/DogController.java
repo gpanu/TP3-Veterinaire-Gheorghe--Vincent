@@ -1,7 +1,8 @@
 package dogs.controller;
 
 import dogs.view.IView;
-import dogs.view.SearchView;
+import dogs.view.ModifyArgumentsOfDogView;
+import dogs.view.ModifyDogRequestView;
 import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -83,19 +84,24 @@ public class DogController extends JDialog implements IDogController {
 		list.remove(idInInt);
 	}
 	
-	public void searchBreed(String breed) {
-		Collection<Dog> list = this.repository.getList();
-		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
-		list.forEach(dog -> {if(dog.getBreed() == breed) {
-			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
-			newListDogs.add(dto);}
-		});
-		goToShow();
+	public void showModifyDogViewAsked(ShowDogView showDogView) {
+		// TODO Auto-generated method stub
+		IView deleteView = new ModifyDogRequestView(this, showDogView);
+		deleteView.display();
 	}
 
-	public void showSearchViewDogAsked() {
-		IView searchView = new SearchView(this);
-		//deleteView.display();
+	public void modifyDog(String id, ShowDogView showDogView, DogDTO dto) {
+		Dog dog = new Dog(dto.name, dto.breed, dto.ownerId);
+		int idInInt = Integer.parseInt(id);
+		this.repository.modify(idInInt, dog);
+		goToShow();
+		//list..merge(idInInt, dto);
+	}
+
+	public void showModifyElementsOfDog(ShowDogView showDogView) {
+		IView modifyView = new ModifyArgumentsOfDogView(this, showDogView);
+		modifyView.display();
+		
 	}
 	
 }

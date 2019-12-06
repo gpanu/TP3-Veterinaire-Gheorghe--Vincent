@@ -15,10 +15,18 @@ public class Repository<T extends Entity> implements IRepository<T>{
 	public void add(T objectToAdd) {
 		entities.put(objectToAdd.getId(), objectToAdd);
 	}
+	
+	public void modify(int i, T dto) {
+		entities.replace(i, dto);
+	}
 
 	public Collection<Integer> getKeys() {
 		return this.entities.keySet();	
 		}
+	
+	public Map<Integer, T> getMap(){
+		return this.entities;
+	}
 	
 	
 

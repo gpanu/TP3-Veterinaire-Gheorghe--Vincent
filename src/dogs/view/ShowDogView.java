@@ -23,10 +23,12 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private static final int OWNER_LAST_NAME = 5;
 	private static final int OWNER_NUMBER = 6;
 	private static final int MAX_COLUMN = 7;
-	private static final String VIEW_TITLE = "Supprimer un chien";
-	private static final String BUTTON_ACTION = "DeleteDog";
-	private static final String BUTTON_SEARCH = "SearchDog";
+	private static final String VIEW_DELETE_TITLE = "Supprimer un chien";
 	private static final String VIEW_SEARCH_TITLE = "Recherche d'un chien";
+	private static final String VIEW_MODIFY_TITLE = "Modifier un chien";
+	private static final String BUTTON_DELETE = "DeleteDog";
+	private static final String BUTTON_SEARCH = "SearchDog";
+	private static final String BUTTON_MODIFY = "Modify";
 	private DogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
@@ -66,10 +68,11 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private void setUpActionPanel() {
 		JPanel action = new JPanel();
 		JPanel search = new JPanel();
-		this.add(search, BorderLayout.WEST);
 		this.add(action, BorderLayout.SOUTH);
+		this.add(search, BorderLayout.WEST);
+		addButton(action, VIEW_DELETE_TITLE, BUTTON_DELETE);
 		addButton(search, VIEW_SEARCH_TITLE, BUTTON_SEARCH);
-		addButton(action, VIEW_TITLE , BUTTON_ACTION);
+		addButton(action, VIEW_MODIFY_TITLE, BUTTON_MODIFY);
 	}
 	
 	private void addButton(JPanel panel, String message, String buttonAction) {
@@ -87,12 +90,11 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent act) {
-		if(act.getActionCommand().equals(BUTTON_ACTION)){
+		if(act.getActionCommand().equals(BUTTON_DELETE)){
 			this.dogController.showDeleteDogViewAsked(this);
 		}
-		if(act.getActionCommand().equals(BUTTON_SEARCH)){
-			this.dogController.showSearchViewDogAsked();
+		if(act.getActionCommand().equals(BUTTON_MODIFY)){
+			this.dogController.showModifyDogViewAsked(this);
 		}
-		
 	}
 }
