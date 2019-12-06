@@ -64,15 +64,15 @@ public class DogController extends JDialog implements IDogController {
 		this.dispose();
 	}
 
-	public void showDeleteDogViewAsked() {
+	public void showDeleteDogViewAsked(ShowDogView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogView(this);
+		IView deleteView = new DeleteDogView(this, showDogView);
 		deleteView.display();
 	}
 
-	public void showDeleteDogConfirmation(String idToDelete) {
+	public void showDeleteDogConfirmation(String idToDelete, ShowDogView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogConfirmationView(this, idToDelete);
+		IView deleteView = new DeleteDogConfirmationView(this, idToDelete, showDogView);
 		deleteView.display();
 	}
 
@@ -80,12 +80,5 @@ public class DogController extends JDialog implements IDogController {
 		Collection<Integer> list = repository.getKeys(); 
 		int idInInt = Integer.parseInt(id);
 		list.remove(idInInt);
-	}
-	
-	public void searchDogByBreed(String breed) {
-		Collection<Integer> list = repository.getKeys(); 
-		for (String breedReturned : repository) {
-			
-		}
 	}
 }

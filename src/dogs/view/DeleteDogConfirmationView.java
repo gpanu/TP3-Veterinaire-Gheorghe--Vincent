@@ -21,11 +21,13 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id - ");
 	private DogController dogController;
 	private String id;
+	private ShowDogView showDogView;
 
-	public DeleteDogConfirmationView(DogController dogController, String id) {
+	public DeleteDogConfirmationView(DogController dogController, String id, ShowDogView showDogView) {
 		super();
 		this.id = id;
 		this.dogController = dogController;
+		this.showDogView = showDogView;
 		this.setUpComponents();
 		this.pack();
 	}
@@ -65,6 +67,7 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 		if(act.getActionCommand().equals(CONFIRM_BUTTON_ACTION)) {
 			this.deleteDog();
 			dispose();
+			showDogView.dispose();
 			this.dogController.goToShow();
 		}
 	}

@@ -14,12 +14,10 @@ public class ShowClientView extends JDialog implements IView{
 	private static final int LAST_NAME_COLUMN = 2;
 	private static final int PHONE_NUMBER_COLUMN = 3;
 	private static final int MAX_COLUMN = 4;
-	private ClientController clientController;
 	private List<ClientDTOWithId> list;
 
 	public ShowClientView(ClientController clientController, List<ClientDTOWithId> list) {
 		super();
-		this.clientController = clientController;
 		this.list = list;
 		this.setUpComponents();
 	}
