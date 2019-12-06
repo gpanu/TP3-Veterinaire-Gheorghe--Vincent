@@ -3,7 +3,8 @@ package dogs.controller;
 import dogs.view.IView;
 import dogs.view.ModifyArgumentsOfDogView;
 import dogs.view.ModifyDogRequestView;
-import dogs.view.SearchView;
+import dogs.view.SearchBreedView;
+import dogs.view.SearchIdView;
 import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -123,14 +124,37 @@ public class DogController extends JDialog implements IDogController {
 		IView ShowDogView = new ShowDogView(this, newListDogs, clientController.getDTOList());
 		ShowDogView.display();
 	}
+	
+	public void searchId(int id) {
+		Collection<Dog> list = this.repository.getList();
+		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
+		for(Dog dog : list) {
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
+			if(dto.id == id) {newListDogs.add(dto);}	
+		}
+		IView ShowDogView = new ShowDogView(this, newListDogs, clientController.getDTOList());
+		ShowDogView.display();
+	}
 
-	public void showSearchViewDogAsked(ShowDogView showDogView) {
-		IView searchView = new SearchView(this, showDogView);
+	public void showSearchBreedViewDogAsked(ShowDogView showDogView) {
+		IView searchView = new SearchBreedView(this, showDogView);
 		searchView.display();
 	}
+
+	public void showSearchIdViewDogAsked(ShowDogView showDogView) {
+		IView searchView = new SearchIdView(this, showDogView);
+		searchView.display();	
+	}
 	
-	public void showSearchedDog(String breed, ShowDogView showDogView) {
+	public void showSearchedBreedDog(String breed, ShowDogView showDogView) {
 		searchBreed(breed);
 		showDogView.dispose();
 	}
+	
+	public void showSearchedIdDog(int id, ShowDogView showDogView) {
+		searchId(id);
+		showDogView.dispose();
+	}
+
+	
 }

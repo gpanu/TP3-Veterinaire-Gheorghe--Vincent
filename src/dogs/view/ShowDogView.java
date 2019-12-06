@@ -24,11 +24,13 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private static final int OWNER_NUMBER = 6;
 	private static final int MAX_COLUMN = 7;
 	private static final String VIEW_DELETE_TITLE = "Supprimer un chien";
-	private static final String VIEW_SEARCH_TITLE = "Recherche d'un chien";
+	private static final String VIEW_SEARCH_TITLE_BREED = "Recherche d'un chien par race";
+	private static final String VIEW_DELETE_TITLE_ID = "Recherche d'un chien par ID";
 	private static final String VIEW_MODIFY_TITLE = "Modifier un chien";
 	private static final String BUTTON_DELETE = "DeleteDog";
-	private static final String BUTTON_SEARCH = "SearchDog";
+	private static final String BUTTON_SEARCH_BY_BREED = "SearchDogBreed";
 	private static final String BUTTON_MODIFY = "Modify";
+	private static final String BUTTON_SEARCH_BY_ID = "SearchDogId";
 	private DogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
@@ -74,7 +76,8 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 		this.add(action, BorderLayout.SOUTH);
 		this.add(search, BorderLayout.WEST);
 		addButton(action, VIEW_DELETE_TITLE, BUTTON_DELETE);
-		addButton(search, VIEW_SEARCH_TITLE, BUTTON_SEARCH);
+		addButton(search, VIEW_SEARCH_TITLE_BREED, BUTTON_SEARCH_BY_BREED);
+		addButton(search, VIEW_DELETE_TITLE_ID, BUTTON_SEARCH_BY_ID);
 		addButton(action, VIEW_MODIFY_TITLE, BUTTON_MODIFY);
 	}
 	
@@ -99,8 +102,11 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 		if(act.getActionCommand().equals(BUTTON_MODIFY)){
 			this.dogController.showModifyDogViewAsked(this);
 		}
-		if(act.getActionCommand().equals(BUTTON_SEARCH)){
-			this.dogController.showSearchViewDogAsked(this);
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_BREED)){
+			this.dogController.showSearchBreedViewDogAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_ID)){
+			this.dogController.showSearchIdViewDogAsked(this);
 		}
 	}
 }
