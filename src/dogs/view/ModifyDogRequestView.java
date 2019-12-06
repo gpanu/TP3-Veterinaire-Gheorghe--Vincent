@@ -3,27 +3,26 @@ package dogs.view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 import dogs.controller.DogController;
 
-public class SearchView extends JDialog implements IView, ActionListener{
-	
-	private static final String BUTTON_TITLE = "Rechercher";
-	private static final String BUTTON_ACTION = "Search";
-	private static final String ACTION_TO_DO_TEXT = "Entrez la race des chiens à afficher";
-	private static final int MAX_LENGHT = 25;
+
+public class ModifyDogRequestView extends JDialog implements IView, ActionListener {
+
+	private static final String BUTTON_TITLE = "Modifier le chien";
+	private static final String BUTTON_ACTION = "Modify";
+	private static final int MAX_LENGTH = 4;
+	private static final String MESSAGE = "Entrez le ID du chien à modifier: ";
+	private JTextField dogIdField = new JTextField(MAX_LENGTH);
 	private DogController dogController;
-	private JTextField dogBreedField = new JTextField(MAX_LENGHT);
 	private ShowDogView showDogView;
 
-	public SearchView(DogController dogController, ShowDogView showDogView) {
+	public ModifyDogRequestView(DogController dogController, ShowDogView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;
@@ -32,9 +31,8 @@ public class SearchView extends JDialog implements IView, ActionListener{
 	}
 
 	private void setUpComponents() {
-		this.setUpSearchDogPanel();
+		this.setUpIdDogPanel();
 		this.setUpActionPanel();
-		
 	}
 
 	private void setUpActionPanel() {
@@ -51,23 +49,23 @@ public class SearchView extends JDialog implements IView, ActionListener{
 		action.add(button);
 	}
 
-	private void setUpSearchDogPanel() {
-		JPanel dogSearchPanel = new JPanel();
-		this.add(dogSearchPanel, BorderLayout.CENTER);
+	private void setUpIdDogPanel() {
+		JPanel dogIdPanel = new JPanel();
+		this.add(dogIdPanel, BorderLayout.CENTER);
 		
-		addDogSearchText(dogSearchPanel);
-		addTextLabel(dogSearchPanel, dogBreedField );
+		addDogIdText(dogIdPanel);
+		addTextLabel(dogIdPanel, dogIdField );
+	}
+	
+	private void addTextLabel(JPanel dogIdPanel, JTextField dogId) {
+		dogIdPanel.add(dogId, BorderLayout.CENTER);
 	}
 
-	private void addTextLabel(JPanel dogSearchPanel, JTextField dogBreedField) {
-		dogSearchPanel.add(dogBreedField, BorderLayout.CENTER);
+	private void addDogIdText(JPanel firstNamePanel) {
+		JLabel label = new JLabel(MESSAGE , SwingConstants.CENTER);
+		firstNamePanel.add(label, BorderLayout.WEST);
 	}
-
-	private void addDogSearchText(JPanel dogSearchPanel) {
-		JLabel label = new JLabel(ACTION_TO_DO_TEXT , SwingConstants.CENTER);
-		dogSearchPanel.add(label, BorderLayout.WEST);
-	}
-
+	
 	@Override
 	public void display() {
 		this.setVisible(true);
@@ -76,13 +74,12 @@ public class SearchView extends JDialog implements IView, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
-			this.searchDogsConfirm();
+			this.modifyDogConfirmation();
 			dispose();
 		}
 	}
 
-	private void searchDogsConfirm() {
-		this.dogController.showSearchedDog(dogBreedField.getText(), this.showDogView);
+	private void modifyDogConfirmation() {
+		this.dogController.showModifyElementsOfDog(this.showDogView, dogIdField.getText());
 	}
-	
 }

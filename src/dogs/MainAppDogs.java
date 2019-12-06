@@ -32,8 +32,8 @@ public class MainAppDogs {
 	}
 
 	private void seedData() {
-		new DogDataSeed(this.dogRepository);
 		new ClientDataSeed(this.clientRepository);
+		new DogDataSeed(this.dogRepository, this.clientRepository);
 	}
 
 	private void createControllers() {

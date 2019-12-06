@@ -16,7 +16,7 @@ import dogs.controller.DogController;
 public class DeleteDogView extends JDialog implements IView, ActionListener {
 
 	private static final int MAX_LENGTH = 4;
-	private static final String FIRST_NAME_TEXT = "Entrez le ID du chien à supprimer: ";
+	private static final String MESSAGE = "Entrez le ID du chien à supprimer: ";
 	private static final String BUTTON_TITLE = "Supprimer le chien";
 	private static final String BUTTON_ACTION = "DeleteDog";
 	private DogController dogController;
@@ -63,7 +63,7 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 	}
 
 	private void addDogIdText(JPanel firstNamePanel) {
-		JLabel label = new JLabel(FIRST_NAME_TEXT , SwingConstants.CENTER);
+		JLabel label = new JLabel(MESSAGE , SwingConstants.CENTER);
 		firstNamePanel.add(label, BorderLayout.WEST);
 	}
 	

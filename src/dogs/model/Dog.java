@@ -44,5 +44,10 @@ public class Dog extends Entity{  // La classe est très simple ici mais il pourr
 		this.ownerId = ownerId;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+		
+	}
+
 
 }

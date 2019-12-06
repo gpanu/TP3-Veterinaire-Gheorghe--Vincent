@@ -18,7 +18,7 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 	private static final String EXIT_BUTTON_ACTION = "Exit";
 	private static final String YES_BUTTON_TITLE = "Oui";
 	private static final String CONFIRM_BUTTON_ACTION = "Confirm";
-	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id - ");
+	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id -> ");
 	private DogController dogController;
 	private String id;
 	private ShowDogView showDogView;
