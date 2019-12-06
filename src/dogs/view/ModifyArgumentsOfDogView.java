@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import dogs.controller.DogController;
 import dogs.controller.IDogController;
-import dogs.dto.DogDTO;
+import dogs.dto.DogDTOWithId;
 
 public class ModifyArgumentsOfDogView extends JDialog implements IView, ActionListener {
 
@@ -19,19 +19,20 @@ public class ModifyArgumentsOfDogView extends JDialog implements IView, ActionLi
 	private IDogController dogController;
 	private JTextField name = new JTextField(MAX_LENGTH);
 	private JTextField breed = new JTextField(MAX_LENGTH);
-	private JTextField ownerIdString = new JTextField(MAX_LENGTH);
 	private JPanel inputPanel = new JPanel();
 	private String NAME_TEXT = "Nom:";
 	private String BREED_TEXT = "Race:";
 	private String VIEW_TITLE = "Confirmer et modifier ce chien";
 	private String BUTTON_ACTION = "ModifyDog";
 	private ShowDogView showDogView;
+	private String dogId;
 
-	public ModifyArgumentsOfDogView(DogController dogController, ShowDogView showDogView) {
+	public ModifyArgumentsOfDogView(DogController dogController, ShowDogView showDogView, String dogId) {
 		super();
 		this.inputPanel.setLayout(new BorderLayout());
 		this.dogController = dogController;
 		this.showDogView = showDogView;
+		this.dogId = dogId;
 		this.setUpComponents();
 	}
 
@@ -102,8 +103,7 @@ public class ModifyArgumentsOfDogView extends JDialog implements IView, ActionLi
 	}
 
 	private void insertDog() {
-		int ownerId = Integer.parseInt(this.ownerIdString.getText());
-		DogDTO dto = new DogDTO(this.name.getText(), this.breed.getText(), ownerId);
-		this.dogController.addDogToRepository(dto);
+		DogDTOWithId dto = new DogDTOWithId(this.name.getText(), this.breed.getText(), Integer.parseInt(dogId), Integer.parseInt(dogId));
+		this.dogController.modifyDog(showDogView, dto);
 	}
 }

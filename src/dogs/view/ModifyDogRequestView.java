@@ -80,6 +80,6 @@ public class ModifyDogRequestView extends JDialog implements IView, ActionListen
 	}
 
 	private void modifyDogConfirmation() {
-		this.dogController.showModifyElementsOfDog(this.showDogView);
+		this.dogController.showModifyElementsOfDog(this.showDogView, dogIdField.getText());
 	}
 }
