@@ -61,6 +61,9 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 			tab2D [i][OWNER_NUMBER] = clientsList.get(Dogslist.get(i).ownerId - 1).number;
 		}
 		JTable table = new JTable(tab2D, tab);
+		//Voici la source de la ligne de code suivante pour le tri de toutes les colonnes.
+		//source: WarriorZeb#1360 https://github.com/WarriorZeb
+		table.setAutoCreateRowSorter(true);
 		JScrollPane scr = new JScrollPane(table);
 		this.add(scr);
 	}
