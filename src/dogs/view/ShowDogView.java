@@ -25,6 +25,8 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private static final int MAX_COLUMN = 7;
 	private static final String VIEW_TITLE = "Supprimer un chien";
 	private static final String BUTTON_ACTION = "DeleteDog";
+	private static final String BUTTON_SEARCH = "SearchDog";
+	private static final String VIEW_SEARCH_TITLE = "Recherche d'un chien";
 	private DogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
@@ -63,7 +65,10 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	
 	private void setUpActionPanel() {
 		JPanel action = new JPanel();
+		JPanel search = new JPanel();
+		this.add(search, BorderLayout.WEST);
 		this.add(action, BorderLayout.SOUTH);
+		addButton(search, VIEW_SEARCH_TITLE, BUTTON_SEARCH);
 		addButton(action, VIEW_TITLE , BUTTON_ACTION);
 	}
 	
@@ -84,6 +89,9 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
 			this.dogController.showDeleteDogViewAsked();
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH)){
+			this.dogController.showSearchViewDogAsked();
 		}
 		
 	}

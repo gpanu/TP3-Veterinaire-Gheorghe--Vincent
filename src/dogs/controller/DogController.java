@@ -1,6 +1,7 @@
 package dogs.controller;
 
 import dogs.view.IView;
+import dogs.view.SearchView;
 import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -82,10 +83,19 @@ public class DogController extends JDialog implements IDogController {
 		list.remove(idInInt);
 	}
 	
-	public void searchDogByBreed(String breed) {
-		Collection<Integer> list = repository.getKeys(); 
-		for (String breedReturned : repository) {
-			
-		}
+	public void searchBreed(String breed) {
+		Collection<Dog> list = this.repository.getList();
+		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
+		list.forEach(dog -> {if(dog.getBreed() == breed) {
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
+			newListDogs.add(dto);}
+		});
+		goToShow();
 	}
+
+	public void showSearchViewDogAsked() {
+		IView searchView = new SearchView(this);
+		//deleteView.display();
+	}
+	
 }
