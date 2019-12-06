@@ -2,7 +2,6 @@ package dogs.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,26 +17,28 @@ import util.image.ImageUtil;
 
 public class WelcomeView extends JFrame implements IView, ActionListener{   // Configurer Eclipse pour ignorer les avertissements sur serial Id
 	
-	private static final String VIEW_TITLE = "Nos amis les chiens";
+	private static final String WINDOW_TITLE = "Clinique vétérinaire";
+	private static final String VIEW_TITLE = "Ajouter un chien";
 	private static final String WELCOME_MESSAGE = "Bienvenue !";
-	
 	private static final String WELCOME_PICTURE = "../resource/dog.jpg";
-
 	private static final Dimension DEFAULT_SIZE = new Dimension(475, 530);
-	private static final String BUTTON_ADD_ACTION = "ADD_DOG";
-	private String SHOW_TITLE = "Show dog list";
+	private static final String BUTTON_ADD_ACTION = "AddDog";
+	private static final String ADD_CLIENT_TITLE = "Ajouter un client";
+	private static final String BUTTON_ADD_CLIENT = "AddClient";
+	private static final String SHOW_CLIENT_TITLE = "Afficher la liste des clients";
+	private static final String BUTTON_SHOW_CLIENT = "ShowClient";
+	private String SHOW_TITLE = "Afficher la liste des chiens";
 	private String BUTTON_SHOW_ACTION = "SHOW_DOGS";
 	
 	private IWelcomeController controller;		// Pas encore utilisé dans cette version...
 	
 	
 	public WelcomeView(IWelcomeController controller) {
-		super(VIEW_TITLE);
-		
+		super(WINDOW_TITLE);
 		this.controller = controller;
-		
 		this.initialize();
 		this.setUpComponents();
+		this.pack();
 	}
 	
 	@Override
@@ -82,6 +83,8 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		this.add(action, BorderLayout.SOUTH);
 		addButton(action, VIEW_TITLE, BUTTON_ADD_ACTION);
 		addButton(action, SHOW_TITLE, BUTTON_SHOW_ACTION);
+		addButton(action, ADD_CLIENT_TITLE, BUTTON_ADD_CLIENT);
+		addButton(action, SHOW_CLIENT_TITLE, BUTTON_SHOW_CLIENT);
 	}
 	
 	private void addButton(JPanel panel, String message, String buttonAction) {
@@ -90,7 +93,6 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		button.addActionListener(this);
 		
 		panel.add(button);
-		
 	}
 
 	@Override
@@ -101,16 +103,28 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		if(act.getActionCommand().equals(BUTTON_SHOW_ACTION)) {
 			this.showDogsAsked();
 		}
+		if(act.getActionCommand().equals(BUTTON_ADD_CLIENT)) {
+			this.addClientAsked();
+		}
+		if(act.getActionCommand().equals(BUTTON_SHOW_CLIENT)) {
+			this.showClientAsked();
+		}
 		
+	}
+
+	private void showClientAsked() {
+		this.controller.wantToShowClient();
+	}
+
+	private void addClientAsked() {
+		this.controller.wantToCreateClient();
 	}
 
 	private void showDogsAsked() {
 		this.controller.wantShowDogs();
-		
 	}
 
 	private void actionAndDogAsked() {
 		this.controller.wantCreateDog();
 	}
-	
 }

@@ -1,7 +1,4 @@
 package dogs.controller;
-
-import javax.swing.JButton;
-
 import dogs.view.IView;
 import dogs.view.WelcomeView;
 
@@ -9,9 +6,11 @@ public class WelcomeController implements IWelcomeController {
 
 
 	private IDogController dogController;
+	private IClientController clientController;
 	
-	public WelcomeController (IDogController dogController) {
+	public WelcomeController (IDogController dogController, IClientController clientController) {
 		this.dogController = dogController;
+		this.clientController = clientController;
 	}
 
 	public void startApplication() {;
@@ -20,7 +19,7 @@ public class WelcomeController implements IWelcomeController {
 	}
 
 	public void wantCreateDog() {
-		this.dogController.goToCreate();
+		this.dogController.createDogView();
 		
 	}
 
@@ -28,6 +27,14 @@ public class WelcomeController implements IWelcomeController {
 	public void wantShowDogs() {
 		this.dogController.goToShow();
 		
+	}
+	
+	public void wantToCreateClient() {
+		this.clientController.createClientView();
+	}
+	
+	public void wantToShowClient() {
+		this.clientController.showClient();
 	}
 	
 }
