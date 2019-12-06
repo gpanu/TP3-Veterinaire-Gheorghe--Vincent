@@ -106,8 +106,6 @@ public class DogController extends JDialog implements IDogController {
 		Map<Integer, Dog> list = repository.getMap();
 		Dog dog = list.get(dogId);
 		return dog.getOwnerId();
-		
-		
 	}
 
 	public void showModifyElementsOfDog(ShowDogView showDogView, String id) {
