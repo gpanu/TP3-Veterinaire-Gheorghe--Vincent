@@ -21,10 +21,12 @@ public class SearchView extends JDialog implements IView, ActionListener{
 	private static final int MAX_LENGHT = 25;
 	private DogController dogController;
 	private JTextField dogBreedField = new JTextField(MAX_LENGHT);
+	private ShowDogView showDogView;
 
-	public SearchView(DogController dogController) {
+	public SearchView(DogController dogController, ShowDogView showDogView) {
 		super();
 		this.dogController = dogController;
+		this.showDogView = showDogView;
 		this.setUpComponents();
 		this.pack();
 	}
@@ -80,7 +82,7 @@ public class SearchView extends JDialog implements IView, ActionListener{
 	}
 
 	private void searchDogsConfirm() {
-		this.dogController.showSearchedDog(dogBreedField.getText());;	
+		this.dogController.showSearchedDog(dogBreedField.getText(), this.showDogView);
 	}
 	
 }

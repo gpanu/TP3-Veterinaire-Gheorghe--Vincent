@@ -96,5 +96,8 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 		if(act.getActionCommand().equals(BUTTON_MODIFY)){
 			this.dogController.showModifyDogViewAsked(this);
 		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH)){
+			this.dogController.showSearchViewDogAsked(this);
+		}
 	}
 }

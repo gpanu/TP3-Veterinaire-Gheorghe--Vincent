@@ -126,12 +126,13 @@ public class DogController extends JDialog implements IDogController {
 		ShowDogView.display();
 	}
 
-	public void showSearchViewDogAsked() {
-		IView searchView = new SearchView(this);
+	public void showSearchViewDogAsked(ShowDogView showDogView) {
+		IView searchView = new SearchView(this, showDogView);
 		searchView.display();
 	}
 	
-	public void showSearchedDog(String breed) {
+	public void showSearchedDog(String breed, ShowDogView showDogView) {
 		searchBreed(breed);
+		showDogView.dispose();
 	}
 }
