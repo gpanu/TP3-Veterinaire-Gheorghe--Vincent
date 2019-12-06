@@ -16,5 +16,6 @@ public class DogDataSeed {
 		this.repository.add(new Dog("bob","boxer", 1));
 		this.repository.add(new Dog("rex","pitbull", 2));
 		this.repository.add(new Dog("chup","golden", 3));
+		this.repository.add(new Dog("le chien de robert","de dorval", 4));
 	}
 }

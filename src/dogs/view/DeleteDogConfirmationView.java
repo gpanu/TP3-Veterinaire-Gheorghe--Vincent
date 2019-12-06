@@ -65,6 +65,7 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 		if(act.getActionCommand().equals(CONFIRM_BUTTON_ACTION)) {
 			this.deleteDog();
 			dispose();
+			this.dogController.goToShow();
 		}
 	}
 

@@ -17,7 +17,10 @@ public class Repository<T extends Entity> implements IRepository<T>{
 	}
 
 	public Collection<Integer> getKeys() {
-		return this.entities.keySet();	}
+		return this.entities.keySet();	
+		}
+	
+	
 
 //	public Dog searchById(int id) {
 //	
