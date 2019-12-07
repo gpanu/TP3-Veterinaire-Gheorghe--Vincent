@@ -1,19 +1,36 @@
 package dogs.view;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import dogs.controller.ClientController;
 import dogs.dto.ClientDTOWithId;
 
-public class ShowClientView extends JDialog implements IView{
+public class ShowClientView extends JDialog implements IView, ActionListener{
 
 	private static final int ID_COLUMN = 0;
 	private static final int FIRST_NAME_COLUMN = 1;
 	private static final int LAST_NAME_COLUMN = 2;
 	private static final int PHONE_NUMBER_COLUMN = 3;
 	private static final int MAX_COLUMN = 4;
+	private static final String BUTTON_DELETE = "DeleteClient";
+	private static final String BUTTON_MODIFY = "modifiCliennt";
+	private static final String BUTTON_SEARCH_BY_NAME = "searchClientName";
+	private static final String BUTTON_SEARCH_BY_ID = "searchClientId";
+	private static final String VIEW_DELETE_TITLE = "Suprimer un client";
+	private static final String VIEW_SEARCH_TITLE_NAME = "Recherche par nom";
+	private static final String VIEW_DELETE_TITLE_ID = "Recherceh par id";
+	private static final String VIEW_MODIFY_TITLE = "Modifier un client";
 	private List<ClientDTOWithId> list;
+	private ClientController clientController;
 
 	public ShowClientView(List<ClientDTOWithId> list) {
 		super();
@@ -23,6 +40,7 @@ public class ShowClientView extends JDialog implements IView{
 
 	private void setUpComponents() {
 		this.setUPTable();
+		this.setUpActionPanel();
 		this.pack();
 	}
 
@@ -44,5 +62,40 @@ public class ShowClientView extends JDialog implements IView{
 	public void display() {
 		this.setVisible(true);
 	}
+	
+	private void setUpActionPanel() {
+		JPanel action = new JPanel();
+		JPanel search = new JPanel();
+		this.add(action, BorderLayout.SOUTH);
+		this.add(search, BorderLayout.WEST);
+		addButton(action, VIEW_DELETE_TITLE, BUTTON_DELETE);
+		addButton(search, VIEW_SEARCH_TITLE_NAME, BUTTON_SEARCH_BY_NAME);
+		addButton(search, VIEW_DELETE_TITLE_ID, BUTTON_SEARCH_BY_ID);
+		addButton(action, VIEW_MODIFY_TITLE, BUTTON_MODIFY);
+	}
+	
+	private void addButton(JPanel panel, String message, String buttonAction) {
+		JButton button = new JButton(message);
+		button.setActionCommand(buttonAction);
+		button.addActionListener(this);
+		
+		panel.add(button);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent act) {
+		if(act.getActionCommand().equals(BUTTON_DELETE)){
+			this.clientController.showDeleteClienViewAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_MODIFY)){
+			this.clientController.showModifyClienViewAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_NAME)){
+			this.clientController.showSearchNameViewClienAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_ID)){
+			this.clientController.showSearchIdViewClienAsked(this);
+		}
 
+	}
 }

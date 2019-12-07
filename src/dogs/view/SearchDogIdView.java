@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 
 import dogs.controller.DogController;
 
-public class SearchIdView extends JDialog implements IView,ActionListener {
+public class SearchDogIdView extends JDialog implements IView,ActionListener {
 	
 	private static final String BUTTON_ID_TITLE = "Rechercher par ID";
 	private static final String BUTTON_ACTION = "Search";
@@ -24,7 +24,7 @@ public class SearchIdView extends JDialog implements IView,ActionListener {
 	private ShowDogView showDogView;
 
 
-	public SearchIdView(DogController dogController, ShowDogView showDogView) {
+	public SearchDogIdView(DogController dogController, ShowDogView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;

@@ -4,7 +4,7 @@ import dogs.view.IView;
 import dogs.view.ModifyArgumentsOfDogView;
 import dogs.view.ModifyDogRequestView;
 import dogs.view.SearchBreedView;
-import dogs.view.SearchIdView;
+import dogs.view.SearchDogIdView;
 import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -142,7 +142,7 @@ public class DogController extends JDialog implements IDogController {
 	}
 
 	public void showSearchIdViewDogAsked(ShowDogView showDogView) {
-		IView searchView = new SearchIdView(this, showDogView);
+		IView searchView = new SearchDogIdView(this, showDogView);
 		searchView.display();	
 	}
 	
