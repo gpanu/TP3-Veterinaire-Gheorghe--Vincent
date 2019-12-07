@@ -1,6 +1,7 @@
 package dogs.view;
 
 import java.awt.BorderLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,12 +23,13 @@ public class DeleteClientConfirmationView extends JDialog implements IView, Acti
 	private ClientController clientController;
 	private String id;
 	private ShowClientView showDogView;
+	private ShowClientView showClientView;
 
 	public DeleteClientConfirmationView(ClientController clienController, String id, ShowClientView showClientView) {
 		super();
 		this.id = id;
 		this.clientController = clienController;
-		this.showDogView = showClientView;
+		this.showClientView = showClientView;
 		this.setUpComponents();
 		this.pack();
 	}
@@ -65,14 +67,14 @@ public class DeleteClientConfirmationView extends JDialog implements IView, Acti
 			dispose();
 		}
 		if(act.getActionCommand().equals(CONFIRM_BUTTON_ACTION)) {
-			this.deleteDog();
+			this.deleteClient();
 			dispose();
-			showDogView.dispose();
+			showClientView.dispose();
 			this.clientController.goToShow();
 		}
 	}
 
-	private void deleteDog() {
+	private void deleteClient() {
 		this.clientController.deleteClientFromList(this.id);
 	}
 	

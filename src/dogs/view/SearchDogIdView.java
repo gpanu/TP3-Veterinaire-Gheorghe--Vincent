@@ -59,8 +59,8 @@ public class SearchDogIdView extends JDialog implements IView,ActionListener {
 		addTextLabel(dogSearchPanel, dogIdField );
 	}
 
-	private void addTextLabel(JPanel dogSearchPanel, JTextField dogBreedField) {
-		dogSearchPanel.add(dogBreedField, BorderLayout.CENTER);
+	private void addTextLabel(JPanel dogSearchPanel, JTextField dogIdField) {
+		dogSearchPanel.add(dogIdField, BorderLayout.CENTER);
 	}
 
 	private void addDogSearchText(JPanel dogSearchPanel) {

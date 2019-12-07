@@ -45,4 +45,9 @@ public class Client extends Entity{
 	public void setNumber(String number) {
 		this.number = number;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+		
+	}
 }

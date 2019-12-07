@@ -12,7 +12,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import dogs.controller.ClientController;
+import dogs.controller.DogController;
 import dogs.dto.ClientDTOWithId;
+import dogs.dto.DogDTOWithId;
 
 public class ShowClientView extends JDialog implements IView, ActionListener{
 
@@ -32,9 +34,10 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 	private List<ClientDTOWithId> list;
 	private ClientController clientController;
 
-	public ShowClientView(List<ClientDTOWithId> list) {
+	public ShowClientView(ClientController clientController, List<ClientDTOWithId> Clientslist) {
 		super();
-		this.list = list;
+		this.list = Clientslist;
+		this.clientController = clientController;
 		this.setUpComponents();
 	}
 
@@ -49,12 +52,14 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 		final int SIZE = list.size();
 		String[][] tab2D = new String[SIZE][MAX_COLUMN];
 		for(int i = 0; i < SIZE; i++) {
-			tab2D [i][ID_COLUMN] = Integer.toString(list.get(i).id);
+			tab2D [i][ID_COLUMN] = list.get(i).id+"";
 			tab2D [i][FIRST_NAME_COLUMN] = list.get(i).firstName;
 			tab2D [i][LAST_NAME_COLUMN] = list.get(i).lastName;
 			tab2D [i][PHONE_NUMBER_COLUMN] = list.get(i).number;	
 		}
 		JTable table = new JTable(tab2D, tab);
+		//voir showDogView pour info
+		table.setAutoCreateRowSorter(true);
 		JScrollPane scr = new JScrollPane(table);
 		this.add(scr);
 	}
