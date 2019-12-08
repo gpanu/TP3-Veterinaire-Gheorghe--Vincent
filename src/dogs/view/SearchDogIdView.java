@@ -17,7 +17,7 @@ public class SearchDogIdView extends JDialog implements IView,ActionListener {
 	
 	private static final String BUTTON_ID_TITLE = "Rechercher par ID";
 	private static final String BUTTON_ACTION = "Search";
-	private static final String ACTION_TO_DO_TEXT_ID = "Entrez la ID des chiens à afficher";
+	private static final String ACTION_TO_DO_TEXT_ID = "Entrez le ID du chien à afficher";
 	private static final int MAX_LENGHT = 25;
 	private DogController dogController;
 	private JTextField dogIdField = new JTextField(MAX_LENGHT);

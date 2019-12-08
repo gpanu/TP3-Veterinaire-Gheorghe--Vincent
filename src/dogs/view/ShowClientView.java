@@ -22,12 +22,12 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 	private static final int PHONE_NUMBER_COLUMN = 3;
 	private static final int MAX_COLUMN = 4;
 	private static final String BUTTON_DELETE = "DeleteClient";
-	private static final String BUTTON_MODIFY = "modifiCliennt";
+	private static final String BUTTON_MODIFY = "modifyClient";
 	private static final String BUTTON_SEARCH_BY_NAME = "searchClientName";
 	private static final String BUTTON_SEARCH_BY_ID = "searchClientId";
 	private static final String VIEW_DELETE_TITLE = "Suprimer un client";
 	private static final String VIEW_SEARCH_TITLE_NAME = "Recherche par nom";
-	private static final String VIEW_DELETE_TITLE_ID = "Recherceh par id";
+	private static final String VIEW_DELETE_TITLE_ID = "Recherche par id";
 	private static final String VIEW_MODIFY_TITLE = "Modifier un client";
 	private List<ClientDTOWithId> list;
 	private ClientController clientController;

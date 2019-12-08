@@ -48,7 +48,6 @@ public class SearchClientNameView extends JDialog implements IView, ActionListen
 		button.addActionListener(this);
 		
 		action.add(button);
-		
 	}
 
 	private void setUpSearchClientPanel() {
@@ -58,8 +57,6 @@ public class SearchClientNameView extends JDialog implements IView, ActionListen
 		addClientSearchText(clientSearchPanel);
 		addTextLabel(clientSearchPanel, clientNameField );
 	}
-
-	
 
 	private void addClientSearchText(JPanel clientSearchPanel) {
 		JLabel label = new JLabel(ACTION_TO_DO_TEXT_NAME , SwingConstants.CENTER);

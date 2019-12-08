@@ -34,7 +34,6 @@ public class SearchBreedView extends JDialog implements IView, ActionListener{
 	private void setUpComponents() {
 		this.setUpSearchDogPanel();
 		this.setUpActionPanel();
-		
 	}
 
 	private void setUpActionPanel() {
@@ -84,5 +83,4 @@ public class SearchBreedView extends JDialog implements IView, ActionListener{
 	private void searchDogsConfirm() {
 		this.dogController.showSearchedBreedDog(dogBreedField.getText(), this.showDogView);
 	}
-	
 }

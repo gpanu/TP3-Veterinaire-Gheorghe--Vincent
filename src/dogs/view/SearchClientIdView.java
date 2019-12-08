@@ -18,7 +18,7 @@ public class SearchClientIdView extends JDialog implements IView, ActionListener
 	private static final String BUTTON_ID_TITLE = "Rechercher par ID";
 	private static final String BUTTON_ACTION = "Search";
 	private static final int MAX_LENGHT = 4;
-	private static final String ACTION_TO_DO_TEXT_ID = "Entrez la ID des clients à afficher";
+	private static final String ACTION_TO_DO_TEXT_ID = "Entrez le ID du client à afficher";
 	private ClientController clientController;
 	private ShowClientView showClientView;
 	private JTextField clientIdField = new JTextField(MAX_LENGHT);
@@ -48,7 +48,6 @@ public class SearchClientIdView extends JDialog implements IView, ActionListener
 		button.addActionListener(this);
 		
 		action.add(button);
-		
 	}
 
 	private void setUpSearchClientPanel() {
@@ -58,8 +57,6 @@ public class SearchClientIdView extends JDialog implements IView, ActionListener
 		addClientSearchText(clientSearchPanel);
 		addTextLabel(clientSearchPanel, clientIdField);
 	}
-
-	
 
 	private void addClientSearchText(JPanel clientSearchPanel) {
 		JLabel label = new JLabel(ACTION_TO_DO_TEXT_ID , SwingConstants.CENTER);
@@ -86,5 +83,4 @@ public class SearchClientIdView extends JDialog implements IView, ActionListener
 	private void searchClientConfirm() {
 		this.clientController.showSearchedIdClient(Integer.parseInt(clientIdField.getText()), showClientView);;
 	}
-
 }
