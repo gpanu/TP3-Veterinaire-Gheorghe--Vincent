@@ -12,9 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import dogs.controller.ClientController;
-import dogs.controller.DogController;
 import dogs.dto.ClientDTOWithId;
-import dogs.dto.DogDTOWithId;
 
 public class ShowClientView extends JDialog implements IView, ActionListener{
 
@@ -63,6 +61,7 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 		JScrollPane scr = new JScrollPane(table);
 		this.add(scr);
 	}
+	
 	@Override
 	public void display() {
 		this.setVisible(true);
@@ -101,6 +100,5 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_ID)){
 			this.clientController.showSearchIdViewClienAsked(this);
 		}
-
 	}
 }

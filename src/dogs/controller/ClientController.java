@@ -6,32 +6,23 @@ import java.util.List;
 import javax.swing.JDialog;
 import dogs.dto.ClientDTO;
 import dogs.dto.ClientDTOWithId;
-import dogs.dto.DogDTOWithId;
 import dogs.model.Client;
-import dogs.model.Dog;
 import dogs.model.IRepository;
 import dogs.view.AddClientConfirmationView;
 import dogs.view.AddClientView;
-import dogs.view.AddDogConfirmationView;
 import dogs.view.DeleteClientConfirmationView;
 import dogs.view.DeleteClientView;
-import dogs.view.DeleteDogConfirmationView;
-import dogs.view.DeleteDogView;
 import dogs.view.IView;
 import dogs.view.ModifyArgumentsOfClientView;
-import dogs.view.ModifyArgumentsOfDogView;
 import dogs.view.ModifyClientRequestView;
-import dogs.view.ModifyDogRequestView;
 import dogs.view.SearchClientIdView;
 import dogs.view.SearchClientNameView;
-import dogs.view.SearchDogIdView;
 import dogs.view.ShowClientView;
-import dogs.view.ShowDogView;
 
 public class ClientController extends JDialog implements IClientController {
 
 	private IRepository<Client> repository;
-	private ClientController clientController;
+
 
 	public ClientController(IRepository<Client> repository) {
 		this.repository = repository;

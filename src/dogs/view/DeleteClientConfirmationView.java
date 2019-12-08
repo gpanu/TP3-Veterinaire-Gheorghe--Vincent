@@ -1,7 +1,6 @@
 package dogs.view;
 
 import java.awt.BorderLayout;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import dogs.controller.ClientController;
-import dogs.controller.DogController;
 
 public class DeleteClientConfirmationView extends JDialog implements IView, ActionListener {
 	private static final String NO_BUTTON_TITLE = "Non";
@@ -22,7 +20,6 @@ public class DeleteClientConfirmationView extends JDialog implements IView, Acti
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id -> ");
 	private ClientController clientController;
 	private String id;
-	private ShowClientView showDogView;
 	private ShowClientView showClientView;
 
 	public DeleteClientConfirmationView(ClientController clienController, String id, ShowClientView showClientView) {

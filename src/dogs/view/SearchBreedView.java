@@ -16,10 +16,8 @@ import dogs.controller.DogController;
 public class SearchBreedView extends JDialog implements IView, ActionListener{
 	
 	private static final String BUTTON_BREED_TITLE = "Rechercher par race";
-	private static final String BUTTON_ID_TITLE = "Rechercher par ID";
 	private static final String BUTTON_ACTION = "Search";
 	private static final String ACTION_TO_DO_TEXT_BREED = "Entrez la race des chiens à afficher";
-	private static final String ACTION_TO_DO_TEXT_ID = "Entrez la race des chiens à afficher";
 	private static final int MAX_LENGHT = 25;
 	private DogController dogController;
 	private JTextField dogBreedField = new JTextField(MAX_LENGHT);

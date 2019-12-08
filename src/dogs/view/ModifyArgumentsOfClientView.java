@@ -13,7 +13,6 @@ import javax.swing.SwingConstants;
 
 import dogs.controller.ClientController;
 import dogs.dto.ClientDTOWithId;
-import dogs.dto.DogDTOWithId;
 
 public class ModifyArgumentsOfClientView extends JDialog implements IView, ActionListener {
 	

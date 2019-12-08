@@ -8,7 +8,6 @@ import org.junit.Test;
 import dogs.controller.DogController;
 import dogs.model.Dog;
 import dogs.model.IRepository;
-import dogs.model.Repository;
 
 public class DogControllerTest{
 
