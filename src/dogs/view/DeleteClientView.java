@@ -15,7 +15,7 @@ import dogs.controller.ClientController;
 
 public class DeleteClientView extends JDialog implements IView, ActionListener {
 	
-	private static final int MAX_LENGTH = 25;
+	private static final int MAX_LENGTH = 4;
 	private static final String BUTTON_TITLE = "Suprimer le client";
 	private static final String BUTTON_ACTION = "DeleteClient";
 	private static final String MESSAGE = "Entrez le ID du client";
@@ -81,7 +81,6 @@ public class DeleteClientView extends JDialog implements IView, ActionListener {
 	}
 
 	private void DeleteClientConfirmationView() {
-
 		this.clientController.showDeleteDogConfirmation(this.clientIdField.getText(), this.showClientView);
 	}
 

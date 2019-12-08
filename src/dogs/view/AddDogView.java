@@ -29,8 +29,6 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private String VIEW_TITLE = "Ajouter ce chien";
 	private String BUTTON_ACTION = "AddDog";
 	
-	 
-	
 	public AddDogView(DogController dogController) {
 		super();
 		this.inputPanel.setLayout(new BorderLayout());

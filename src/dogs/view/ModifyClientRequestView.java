@@ -17,7 +17,7 @@ public class ModifyClientRequestView extends JDialog implements IView, ActionLis
 	
 	private static final String BUTTON_TITLE = "Modifier le client";
 	private static final String BUTTON_ACTION = "Modify";
-	private static final int MAX_LENGTH = 25;
+	private static final int MAX_LENGTH = 4;
 	private static final String MESSAGE = "Entrez le ID du client à modifier: ";;
 	private ClientController clientController;
 	private ShowClientView showClientView;
@@ -82,5 +82,4 @@ public class ModifyClientRequestView extends JDialog implements IView, ActionLis
 	private void modifyClientConfirmation() {
 		this.clientController.showModifyElementsOfClient(this.showClientView, Integer.parseInt(clientIdField.getText()));
 	}
-
 }

@@ -84,7 +84,4 @@ public class SearchDogIdView extends JDialog implements IView,ActionListener {
 	private void searchDogsConfirm() {
 		this.dogController.showSearchedIdDog(Integer.parseInt(dogIdField.getText()), showDogView);;
 	}
-	
-
-
 }

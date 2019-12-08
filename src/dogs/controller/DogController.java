@@ -155,6 +155,4 @@ public class DogController extends JDialog implements IDogController {
 		searchId(id);
 		showDogView.dispose();
 	}
-
-	
 }

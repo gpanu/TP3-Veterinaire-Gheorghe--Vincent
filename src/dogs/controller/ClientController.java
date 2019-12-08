@@ -154,6 +154,4 @@ public class ClientController extends JDialog implements IClientController {
 		IView ShowClienView = new ShowClientView(this, newListClient);
 		ShowClienView.display();
 	}
-
-	
 }

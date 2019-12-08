@@ -11,13 +11,14 @@ public class DogDataSeed {
 	private static final int THIRD_KEY_CLIENT = 3;
 	private static final int FOURTH_KEY_CLIENT = 4;
 	private IRepository<Dog> repository;
-	private IRepository<Client> clientRepository;
+	@SuppressWarnings("unused")
+	private IRepository<Client> clientRepository; //utilisé mais toujours souligné en jaune...
 	private Map<Integer, Client> clients;
 	
 	public DogDataSeed(IRepository<Dog> repository, IRepository<Client> clientRepository) {
 		this.repository = repository;
 		this.clientRepository = clientRepository;
-		this.clients = clientRepository.getMap();
+		this.clients = clientRepository.getMap(); //utilisé ici
 		this.tableSeeder(repository, clientRepository);
 	}
 	

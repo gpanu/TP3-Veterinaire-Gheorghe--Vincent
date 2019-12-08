@@ -74,6 +74,4 @@ public class DeleteClientConfirmationView extends JDialog implements IView, Acti
 	private void deleteClient() {
 		this.clientController.deleteClientFromList(this.id);
 	}
-	
-
 }

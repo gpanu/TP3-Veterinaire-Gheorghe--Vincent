@@ -86,5 +86,4 @@ public class SearchClientNameView extends JDialog implements IView, ActionListen
 	private void searchClientConfirm() {
 		this.clientController.showSearchedNameClient(clientNameField.getText(), showClientView);;
 	}
-
 }

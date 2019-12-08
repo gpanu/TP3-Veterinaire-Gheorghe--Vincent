@@ -17,7 +17,7 @@ public class SearchClientIdView extends JDialog implements IView, ActionListener
 	
 	private static final String BUTTON_ID_TITLE = "Rechercher par ID";
 	private static final String BUTTON_ACTION = "Search";
-			private static final int MAX_LENGHT = 25;;
+	private static final int MAX_LENGHT = 4;
 	private static final String ACTION_TO_DO_TEXT_ID = "Entrez la ID des clients à afficher";
 	private ClientController clientController;
 	private ShowClientView showClientView;
