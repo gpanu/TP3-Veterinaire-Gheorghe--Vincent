@@ -1,13 +1,15 @@
 package dogs.controller;
 
-import dogs.model.DogDTO;
+import dogs.dto.DogDTO;
 
 public interface IDogController {
 
-	void goToCreate();
+	void createDogView();
 
 	void addDogToRepository(DogDTO dto);
 
 	void goToShow();
+
+	void showConfirmationAsked();
 
 }

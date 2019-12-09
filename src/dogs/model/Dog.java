@@ -1,17 +1,18 @@
 package dogs.model;
 
-public class Dog {  // La classe est très simple ici mais il pourrait avoir des validations ou des algos plus complexes.
+public class Dog extends Entity{  // La classe est très simple ici mais il pourrait avoir des validations ou des algos plus complexes.
 	
-	private int id = 0;
 	private String name;
 	private String breed;
+	private int ownerId;
 	private static int nextDog = 1;
 	
-	public Dog(String name, String breed) {
+	public Dog(String name, String breed, int ownerId) {
 		//TODO: calculer l'id --> un no unique pour identifier un chien
+		super(nextDog);
 		this.name = name;
 		this.breed = breed;
-		this.id = nextDog;
+		this.ownerId = ownerId;
 		incrementId();
 	}
 
@@ -26,6 +27,9 @@ public class Dog {  // La classe est très simple ici mais il pourrait avoir des 
 	public String getName() {
 		return name;
 	}
+	public int getOwnerId() {
+		return this.ownerId;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -36,5 +40,9 @@ public class Dog {  // La classe est très simple ici mais il pourrait avoir des 
 	public void setBreed(String breed) {
 		this.breed = breed;
 	}
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
 
 }
