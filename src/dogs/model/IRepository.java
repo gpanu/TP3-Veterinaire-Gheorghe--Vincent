@@ -10,5 +10,7 @@ public interface IRepository<T> {
 	Collection<Integer> getKeys();
 	Map<Integer, T> getMap();
 	void modify(int idInInt, T dto);
+	boolean isCalled();
+	void remove(String id);
 
 }

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 
 public class DeleteClientConfirmationView extends JDialog implements IView, ActionListener {
 	private static final String NO_BUTTON_TITLE = "Non";
@@ -18,11 +18,11 @@ public class DeleteClientConfirmationView extends JDialog implements IView, Acti
 	private static final String YES_BUTTON_TITLE = "Oui";
 	private static final String CONFIRM_BUTTON_ACTION = "Confirm";
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id -> ");
-	private ClientController clientController;
+	private IClientController clientController;
 	private String id;
-	private ShowClientView showClientView;
+	private IView showClientView;
 
-	public DeleteClientConfirmationView(ClientController clienController, String id, ShowClientView showClientView) {
+	public DeleteClientConfirmationView(IClientController clienController, String id, IView showClientView) {
 		super();
 		this.id = id;
 		this.clientController = clienController;

@@ -4,4 +4,6 @@ public interface IView {
 	
 	void display();
 
+	void dispose();
+
 }

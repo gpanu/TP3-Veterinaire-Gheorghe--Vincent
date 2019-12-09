@@ -22,15 +22,22 @@ public class Repository<T extends Entity> implements IRepository<T>{
 
 	public Collection<Integer> getKeys() {
 		return this.entities.keySet();	
-		}
+	}
 	
 	public Map<Integer, T> getMap(){
 		return this.entities;
 	}
-	
-	
 
-//	public Dog searchById(int id) {
-//	
-//}
+	@Override
+	public boolean isCalled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void remove(String id) {
+		Collection<Integer> list = this.getKeys(); 
+		int idInInt = Integer.parseInt(id);
+		list.remove(idInInt);
+	}
 }

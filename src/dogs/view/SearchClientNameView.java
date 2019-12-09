@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 
 public class SearchClientNameView extends JDialog implements IView, ActionListener {
 	
@@ -19,11 +19,11 @@ public class SearchClientNameView extends JDialog implements IView, ActionListen
 	private static final String BUTTON_ACTION = "search";
 	private static final String ACTION_TO_DO_TEXT_NAME = "Entrez le nom des clients à afficher";
 	private static final int MAX_LENGHT = 25;
-	private ClientController clientController;
-	private ShowClientView showClientView;
+	private IClientController clientController;
+	private IView showClientView;
 	private JTextField clientNameField = new JTextField(MAX_LENGHT);
 
-	public SearchClientNameView(ClientController clientController, ShowClientView showClientView) {
+	public SearchClientNameView(IClientController clientController, IView showClientView) {
 		super();
 		this.clientController = clientController;
 		this.showClientView = showClientView;

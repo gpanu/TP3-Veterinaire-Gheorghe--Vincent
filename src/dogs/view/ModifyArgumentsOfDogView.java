@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import dogs.controller.DogController;
 import dogs.controller.IDogController;
 import dogs.dto.DogDTOWithId;
 
@@ -24,14 +23,14 @@ public class ModifyArgumentsOfDogView extends JDialog implements IView, ActionLi
 	private String BREED_TEXT = "Race:";
 	private String VIEW_TITLE = "Confirmer et modifier ce chien";
 	private String BUTTON_ACTION = "ModifyDog";
-	private ShowDogView showDogView;
+	private IView showDogView;
 	private String dogId;
 
-	public ModifyArgumentsOfDogView(DogController dogController, ShowDogView showDogView, String dogId) {
+	public ModifyArgumentsOfDogView(IDogController dogController, IView showDogView2, String dogId) {
 		super();
 		this.inputPanel.setLayout(new BorderLayout());
 		this.dogController = dogController;
-		this.showDogView = showDogView;
+		this.showDogView = showDogView2;
 		this.dogId = dogId;
 		this.setUpComponents();
 	}

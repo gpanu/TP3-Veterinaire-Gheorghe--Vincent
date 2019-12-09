@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 
 
 public class ModifyDogRequestView extends JDialog implements IView, ActionListener {
@@ -19,10 +19,10 @@ public class ModifyDogRequestView extends JDialog implements IView, ActionListen
 	private static final int MAX_LENGTH = 4;
 	private static final String MESSAGE = "Entrez le ID du chien à modifier: ";
 	private JTextField dogIdField = new JTextField(MAX_LENGTH);
-	private DogController dogController;
-	private ShowDogView showDogView;
+	private IDogController dogController;
+	private IView showDogView;
 
-	public ModifyDogRequestView(DogController dogController, ShowDogView showDogView) {
+	public ModifyDogRequestView(IDogController dogController, IView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;

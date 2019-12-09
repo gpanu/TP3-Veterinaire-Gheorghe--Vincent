@@ -9,7 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 import dogs.dto.ClientDTOWithId;
 import dogs.dto.DogDTOWithId;
 
@@ -31,11 +31,11 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private static final String BUTTON_SEARCH_BY_BREED = "SearchDogBreed";
 	private static final String BUTTON_MODIFY = "Modify";
 	private static final String BUTTON_SEARCH_BY_ID = "SearchDogId";
-	private DogController dogController;
+	private IDogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
 
-	public ShowDogView(DogController dogController, List<DogDTOWithId> Dogslist, List<ClientDTOWithId> clientsList) {
+	public ShowDogView(IDogController dogController, List<DogDTOWithId> Dogslist, List<ClientDTOWithId> clientsList) {
 		super();
 		this.dogController = dogController;
 		this.Dogslist = Dogslist;

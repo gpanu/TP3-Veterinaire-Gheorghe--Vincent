@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 
 public class SearchBreedView extends JDialog implements IView, ActionListener{
 	
@@ -19,14 +19,14 @@ public class SearchBreedView extends JDialog implements IView, ActionListener{
 	private static final String BUTTON_ACTION = "Search";
 	private static final String ACTION_TO_DO_TEXT_BREED = "Entrez la race des chiens à afficher";
 	private static final int MAX_LENGHT = 25;
-	private DogController dogController;
+	private IDogController dogController;
 	private JTextField dogBreedField = new JTextField(MAX_LENGHT);
-	private ShowDogView showDogView;
+	private IView showDogView;
 
-	public SearchBreedView(DogController dogController, ShowDogView showDogView) {
+	public SearchBreedView(IDogController dogController, IView showDogView2) {
 		super();
 		this.dogController = dogController;
-		this.showDogView = showDogView;
+		this.showDogView = showDogView2;
 		this.setUpComponents();
 		this.pack();
 	}
