@@ -7,15 +7,11 @@ import org.junit.Test;
 
 public class WelcomControllerTest {
 
+	//rien à vraiment tester
 
 }
 
-package tests;
-
-public class WelcomControllerTest {
-	
-	//Pas de réel besoin de tester
 	
 	
 
-}
+
