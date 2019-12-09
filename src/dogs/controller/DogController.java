@@ -1,11 +1,18 @@
 package dogs.controller;
 
 import dogs.view.IView;
+import dogs.view.ModifyArgumentsOfDogView;
+import dogs.view.ModifyDogRequestView;
+import dogs.view.SearchBreedView;
+import dogs.view.SearchDogIdView;
 import dogs.view.ShowDogView;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+
 import javax.swing.JDialog;
+
 import dogs.dto.DogDTO;
 import dogs.dto.DogDTOWithId;
 import dogs.model.Dog;
@@ -59,33 +66,102 @@ public class DogController extends JDialog implements IDogController {
 	@Override
 	public void showConfirmationAsked() {
 		// TODO Auto-generated method stub
-		IView confirmation = new AddDogConfirmationView(this);
+		IView confirmation = new AddDogConfirmationView();
 		confirmation.display();
 		this.dispose();
 	}
 
-	public void showDeleteDogViewAsked() {
+	public void showDeleteDogViewAsked(IView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogView(this);
+		IView deleteView = new DeleteDogView(this, showDogView);
 		deleteView.display();
 	}
 
-	public void showDeleteDogConfirmation(String idToDelete) {
+	public void showDeleteDogConfirmation(String idToDelete, IView showDogView) {
 		// TODO Auto-generated method stub
-		IView deleteView = new DeleteDogConfirmationView(this, idToDelete);
+		IView deleteView = new DeleteDogConfirmationView(this, idToDelete, showDogView);
 		deleteView.display();
 	}
 
 	public void deleteDogFromList(String id) {
-		Collection<Integer> list = repository.getKeys(); 
-		int idInInt = Integer.parseInt(id);
-		list.remove(idInInt);
+		this.repository.remove(id);
 	}
 	
-	public void searchDogByBreed(String breed) {
-		Collection<Integer> list = repository.getKeys(); 
-		for (String breedReturned : repository) {
-			
+	public void showModifyDogViewAsked(IView showDogView) {
+		// TODO Auto-generated method stub
+		IView deleteView = new ModifyDogRequestView(this, showDogView);
+		deleteView.display();
+	}
+
+	public void modifyDog(IView showDogView, DogDTOWithId dto) {
+		dto.ownerId = this.getOwnerId(dto.id);
+		Dog dog = new Dog(dto.name, dto.breed, dto.ownerId);
+		dog.setId(dto.id);
+		this.repository.modify(dto.id, dog);
+		showDogView.dispose();
+		goToShow();
+	}
+
+	private int getOwnerId(int dogId) {
+		Map<Integer, Dog> list = repository.getMap();
+		Dog dog = list.get(dogId);
+		return dog.getOwnerId();
+	}
+
+	public void showModifyElementsOfDog(IView showDogView, String id) {
+		IView modifyView = new ModifyArgumentsOfDogView(this, showDogView, id);
+		modifyView.display();
+	}
+		
+	public void searchBreed(String breed) {
+		Collection<Dog> list = this.repository.getList();
+		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
+		for(Dog dog : list) {
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
+			if(dto.breed.equals(breed)) {newListDogs.add(dto);}	
 		}
+		IView ShowDogView = new ShowDogView(this, newListDogs, clientController.getDTOList());
+		ShowDogView.display();
+	}
+	
+	public void searchId(int id) {
+		Collection<Dog> list = this.repository.getList();
+		List<DogDTOWithId> newListDogs = new ArrayList<DogDTOWithId>();
+		for(Dog dog : list) {
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(),dog.getId(), dog.getOwnerId());
+			if(dto.id == id) {newListDogs.add(dto);}	
+		}
+		IView ShowDogView = new ShowDogView(this, newListDogs, clientController.getDTOList());
+		ShowDogView.display();
+	}
+
+	public void showSearchBreedViewDogAsked(IView showDogView) {
+		IView searchView = new SearchBreedView(this, showDogView);
+		searchView.display();
+	}
+
+	public void showSearchIdViewDogAsked(IView showDogView) {
+		IView searchView = new SearchDogIdView(this, showDogView);
+		searchView.display();	
+	}
+	
+	public void showSearchedBreedDog(String breed, IView showDogView) {
+		searchBreed(breed);
+		showDogView.dispose();
+	}
+	
+	public void showSearchedIdDog(int id, IView showDogView) {
+		searchId(id);
+		showDogView.dispose();
+	}
+
+	@Override
+	public List<DogDTOWithId> getDTOList() {
+		List<DogDTOWithId> dogs = new ArrayList<DogDTOWithId>();
+		for(Dog dog : this.repository.getList()) {
+			DogDTOWithId dto = new DogDTOWithId(dog.getName(),dog.getBreed(), dog.getOwnerId(), dog.getId());
+			dogs.add(dto);
+		}
+		return dogs;
 	}
 }

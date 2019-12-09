@@ -10,24 +10,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import dogs.controller.IDogController;
+import dogs.controller.IClientController;
 
-public class DeleteDogConfirmationView extends JDialog implements IView, ActionListener {
-
+public class DeleteClientConfirmationView extends JDialog implements IView, ActionListener {
 	private static final String NO_BUTTON_TITLE = "Non";
 	private static final String EXIT_BUTTON_ACTION = "Exit";
 	private static final String YES_BUTTON_TITLE = "Oui";
 	private static final String CONFIRM_BUTTON_ACTION = "Confirm";
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id -> ");
-	private IDogController dogController;
+	private IClientController clientController;
 	private String id;
-	private IView showDogView;
+	private IView showClientView;
 
-	public DeleteDogConfirmationView(IDogController dogController, String id, IView showDogView) {
+	public DeleteClientConfirmationView(IClientController clienController, String id, IView showClientView) {
 		super();
 		this.id = id;
-		this.dogController = dogController;
-		this.showDogView = showDogView;
+		this.clientController = clienController;
+		this.showClientView = showClientView;
 		this.setUpComponents();
 		this.pack();
 	}
@@ -65,14 +64,14 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 			dispose();
 		}
 		if(act.getActionCommand().equals(CONFIRM_BUTTON_ACTION)) {
-			this.deleteDog();
+			this.deleteClient();
 			dispose();
-			showDogView.dispose();
-			this.dogController.goToShow();
+			showClientView.dispose();
+			this.clientController.goToShow();
 		}
 	}
 
-	private void deleteDog() {
-		this.dogController.deleteDogFromList(this.id);
+	private void deleteClient() {
+		this.clientController.deleteClientFromList(this.id);
 	}
 }

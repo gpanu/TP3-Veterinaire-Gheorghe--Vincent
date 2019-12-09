@@ -15,14 +15,29 @@ public class Repository<T extends Entity> implements IRepository<T>{
 	public void add(T objectToAdd) {
 		entities.put(objectToAdd.getId(), objectToAdd);
 	}
+	
+	public void modify(int i, T dto) {
+		entities.replace(i, dto);
+	}
 
 	public Collection<Integer> getKeys() {
 		return this.entities.keySet();	
-		}
+	}
 	
-	
+	public Map<Integer, T> getMap(){
+		return this.entities;
+	}
 
-//	public Dog searchById(int id) {
-//	
-//}
+	@Override
+	public boolean isCalled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void remove(String id) {
+		Collection<Integer> list = this.getKeys(); 
+		int idInInt = Integer.parseInt(id);
+		list.remove(idInInt);
+	}
 }

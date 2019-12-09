@@ -3,27 +3,26 @@ package dogs.view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 import dogs.controller.IDogController;
 
-public class DeleteDogView extends JDialog implements IView, ActionListener {
 
+public class ModifyDogRequestView extends JDialog implements IView, ActionListener {
+
+	private static final String BUTTON_TITLE = "Modifier le chien";
+	private static final String BUTTON_ACTION = "Modify";
 	private static final int MAX_LENGTH = 4;
-	private static final String MESSAGE = "Entrez le ID du chien à supprimer: ";
-	private static final String BUTTON_TITLE = "Supprimer le chien";
-	private static final String BUTTON_ACTION = "DeleteDog";
-	private IDogController dogController;
+	private static final String MESSAGE = "Entrez le ID du chien à modifier: ";
 	private JTextField dogIdField = new JTextField(MAX_LENGTH);
+	private IDogController dogController;
 	private IView showDogView;
 
-	public DeleteDogView(IDogController dogController, IView showDogView) {
+	public ModifyDogRequestView(IDogController dogController, IView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;
@@ -55,9 +54,9 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 		this.add(dogIdPanel, BorderLayout.CENTER);
 		
 		addDogIdText(dogIdPanel);
-		addTextLabel(dogIdPanel, dogIdField);
+		addTextLabel(dogIdPanel, dogIdField );
 	}
-
+	
 	private void addTextLabel(JPanel dogIdPanel, JTextField dogId) {
 		dogIdPanel.add(dogId, BorderLayout.CENTER);
 	}
@@ -75,12 +74,12 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
-			this.deleteDogConfirmation();
+			this.modifyDogConfirmation();
 			dispose();
 		}
 	}
 
-	private void deleteDogConfirmation() {
-		this.dogController.showDeleteDogConfirmation(this.dogIdField.getText(), this.showDogView);	
+	private void modifyDogConfirmation() {
+		this.dogController.showModifyElementsOfDog(this.showDogView, dogIdField.getText());
 	}
 }

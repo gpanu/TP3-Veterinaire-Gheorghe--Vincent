@@ -6,11 +6,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class AddDogConfirmationView extends JDialog implements IView {
 
-	private String CONFIRMATION_MESSAGE = "- Le chien a bien été ajouté. Vous pouvez fermer la fenetre. -";
+public class AddClientConfirmationView extends JDialog implements IView {
 
-	public AddDogConfirmationView() {
+	private String CONFIRMATION_MESSAGE = "- Le client a bien été ajouté. Vous pouvez fermer la fenetre. -";
+
+	public AddClientConfirmationView() {
 		super();
 		this.setUpComponents();
 		this.pack();

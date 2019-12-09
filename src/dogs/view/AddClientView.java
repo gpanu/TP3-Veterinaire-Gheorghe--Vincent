@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 import dogs.dto.ClientDTO;
 
 public class AddClientView extends JDialog implements IView, ActionListener {
@@ -21,18 +21,21 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	private static final String BUTTON_TITLE = "Ajouter ce client";
 	private static final String BUTTON_ACTION = "AddClient";
 	private static final String NUMBER_TEXT = "Numero de telephone:";
-	private ClientController clientController;
+	private IClientController clientController;
 	private JTextField firstName = new JTextField(MAX_LENGTH);
 	private JTextField lastName = new JTextField(MAX_LENGTH);
 	private JTextField number = new JTextField(MAX_LENGTH);
+	private JPanel inputPanel = new JPanel();
 
-	public AddClientView(ClientController clientController) {
+	public AddClientView(IClientController clientController) {
 		super();
 		this.clientController = clientController;
+		this.inputPanel.setLayout(new BorderLayout());
 		this.setUpComponents();
 	}
 
 	private void setUpComponents() {
+		this.add(inputPanel, BorderLayout.CENTER);
 		this.setUpFirstNamePanel();
 		this.setUpLastNamePanel();
 		this.setUpNumberPanel();
@@ -42,25 +45,32 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 
 	private void setUpFirstNamePanel() {
 		JPanel firstNamePanel = new JPanel();
-		this.add(firstNamePanel, BorderLayout.NORTH);
+		this.inputPanel.add(firstNamePanel, BorderLayout.NORTH);
 		
 		addFistNameText(firstNamePanel);
-		addTextLabel(firstNamePanel, firstName);
-		
-	}
-
-	private void addFistNameText(JPanel firstNamePanel) {
-		JLabel label = new JLabel(FIRST_NAME_TEXT , SwingConstants.CENTER);
-		firstNamePanel.add(label, BorderLayout.WEST);
-		
+		addTextLabel(firstNamePanel, firstName);	
 	}
 	
 	private void setUpLastNamePanel() {
 		JPanel lastNamePanel = new JPanel();
-		this.add(lastNamePanel, BorderLayout.CENTER);
+		this.inputPanel.add(lastNamePanel, BorderLayout.CENTER);
 		
 		addLastNameText(lastNamePanel);
 		addTextLabel(lastNamePanel, lastName);
+	}
+
+	private void setUpNumberPanel() {
+		JPanel numberPanel = new JPanel();
+		this.inputPanel.add(numberPanel, BorderLayout.SOUTH);
+		
+		addNumberText(numberPanel);
+		addTextLabel(numberPanel, number);
+	}
+	
+	private void addFistNameText(JPanel firstNamePanel) {
+		JLabel label = new JLabel(FIRST_NAME_TEXT , SwingConstants.CENTER);
+		firstNamePanel.add(label, BorderLayout.WEST);
+		
 	}
 	
 	private void addLastNameText(JPanel lastNamePanel) {
@@ -68,14 +78,6 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 		lastNamePanel.add(label, BorderLayout.WEST);
 	}
 
-	private void setUpNumberPanel() {
-		JPanel numberPanel = new JPanel();
-		this.add(numberPanel, BorderLayout.SOUTH);
-		
-		addNumberText(numberPanel);
-		addTextLabel(numberPanel, number);
-	}
-	
 	private void addNumberText(JPanel numberPanel) {
 		JLabel label = new JLabel(NUMBER_TEXT , SwingConstants.CENTER);
 		numberPanel.add(label, BorderLayout.WEST);
@@ -87,7 +89,7 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	
 	private void setUpActionPanel() {
 		JPanel action = new JPanel();
-		this.add(action, BorderLayout.EAST);
+		this.add(action, BorderLayout.SOUTH);
 		addButton(action, BUTTON_TITLE , BUTTON_ACTION);
 	}
 
@@ -108,6 +110,7 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	public void actionPerformed(ActionEvent act) {
 		if(act.getActionCommand().equals(BUTTON_ACTION)){
 			this.insertClient();
+			this.clientController.showAddConfirmation();
 			dispose();
 		}
 	}

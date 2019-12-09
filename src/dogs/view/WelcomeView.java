@@ -109,7 +109,6 @@ public class WelcomeView extends JFrame implements IView, ActionListener{   // C
 		if(act.getActionCommand().equals(BUTTON_SHOW_CLIENT)) {
 			this.showClientAsked();
 		}
-		
 	}
 
 	private void showClientAsked() {

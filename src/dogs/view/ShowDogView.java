@@ -9,7 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 import dogs.dto.ClientDTOWithId;
 import dogs.dto.DogDTOWithId;
 
@@ -23,13 +23,19 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 	private static final int OWNER_LAST_NAME = 5;
 	private static final int OWNER_NUMBER = 6;
 	private static final int MAX_COLUMN = 7;
-	private static final String VIEW_TITLE = "Supprimer un chien";
-	private static final String BUTTON_ACTION = "DeleteDog";
-	private DogController dogController;
+	private static final String VIEW_DELETE_TITLE = "Supprimer un chien";
+	private static final String VIEW_SEARCH_TITLE_BREED = "Recherche d'un chien par race";
+	private static final String VIEW_DELETE_TITLE_ID = "Recherche d'un chien par ID";
+	private static final String VIEW_MODIFY_TITLE = "Modifier un chien";
+	private static final String BUTTON_DELETE = "DeleteDog";
+	private static final String BUTTON_SEARCH_BY_BREED = "SearchDogBreed";
+	private static final String BUTTON_MODIFY = "Modify";
+	private static final String BUTTON_SEARCH_BY_ID = "SearchDogId";
+	private IDogController dogController;
 	private List<DogDTOWithId> Dogslist;
 	private List<ClientDTOWithId> clientsList;
 
-	public ShowDogView(DogController dogController, List<DogDTOWithId> Dogslist, List<ClientDTOWithId> clientsList) {
+	public ShowDogView(IDogController dogController, List<DogDTOWithId> Dogslist, List<ClientDTOWithId> clientsList) {
 		super();
 		this.dogController = dogController;
 		this.Dogslist = Dogslist;
@@ -57,14 +63,22 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 			tab2D [i][OWNER_NUMBER] = clientsList.get(Dogslist.get(i).ownerId - 1).number;
 		}
 		JTable table = new JTable(tab2D, tab);
+		//Voici la source de la ligne de code suivante pour le tri de toutes les colonnes.
+		//source: WarriorZeb#1360 https://github.com/WarriorZeb
+		table.setAutoCreateRowSorter(true);
 		JScrollPane scr = new JScrollPane(table);
 		this.add(scr);
 	}
 	
 	private void setUpActionPanel() {
 		JPanel action = new JPanel();
+		JPanel search = new JPanel();
 		this.add(action, BorderLayout.SOUTH);
-		addButton(action, VIEW_TITLE , BUTTON_ACTION);
+		this.add(search, BorderLayout.WEST);
+		addButton(action, VIEW_DELETE_TITLE, BUTTON_DELETE);
+		addButton(search, VIEW_SEARCH_TITLE_BREED, BUTTON_SEARCH_BY_BREED);
+		addButton(search, VIEW_DELETE_TITLE_ID, BUTTON_SEARCH_BY_ID);
+		addButton(action, VIEW_MODIFY_TITLE, BUTTON_MODIFY);
 	}
 	
 	private void addButton(JPanel panel, String message, String buttonAction) {
@@ -82,9 +96,17 @@ public class ShowDogView extends JDialog implements IView, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent act) {
-		if(act.getActionCommand().equals(BUTTON_ACTION)){
-			this.dogController.showDeleteDogViewAsked();
+		if(act.getActionCommand().equals(BUTTON_DELETE)){
+			this.dogController.showDeleteDogViewAsked(this);
 		}
-		
+		if(act.getActionCommand().equals(BUTTON_MODIFY)){
+			this.dogController.showModifyDogViewAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_BREED)){
+			this.dogController.showSearchBreedViewDogAsked(this);
+		}
+		if(act.getActionCommand().equals(BUTTON_SEARCH_BY_ID)){
+			this.dogController.showSearchIdViewDogAsked(this);
+		}
 	}
 }
