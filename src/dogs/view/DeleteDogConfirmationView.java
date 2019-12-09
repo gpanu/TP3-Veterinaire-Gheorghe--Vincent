@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 
 public class DeleteDogConfirmationView extends JDialog implements IView, ActionListener {
 
@@ -19,11 +19,11 @@ public class DeleteDogConfirmationView extends JDialog implements IView, ActionL
 	private static final String YES_BUTTON_TITLE = "Oui";
 	private static final String CONFIRM_BUTTON_ACTION = "Confirm";
 	private static String CONFIRMATION_MESSAGE = String.format("Etes vous sur de vouloir supprimer le chien avec le id -> ");
-	private DogController dogController;
+	private IDogController dogController;
 	private String id;
-	private ShowDogView showDogView;
+	private IView showDogView;
 
-	public DeleteDogConfirmationView(DogController dogController, String id, ShowDogView showDogView) {
+	public DeleteDogConfirmationView(IDogController dogController, String id, IView showDogView) {
 		super();
 		this.id = id;
 		this.dogController = dogController;

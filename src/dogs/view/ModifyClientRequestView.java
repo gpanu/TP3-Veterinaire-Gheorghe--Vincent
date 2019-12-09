@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 
 public class ModifyClientRequestView extends JDialog implements IView, ActionListener {
 	
@@ -19,11 +19,11 @@ public class ModifyClientRequestView extends JDialog implements IView, ActionLis
 	private static final String BUTTON_ACTION = "Modify";
 	private static final int MAX_LENGTH = 4;
 	private static final String MESSAGE = "Entrez le ID du client à modifier: ";;
-	private ClientController clientController;
-	private ShowClientView showClientView;
+	private IClientController clientController;
+	private IView showClientView;
 	private JTextField clientIdField = new JTextField(MAX_LENGTH);
 
-	public ModifyClientRequestView(ClientController clientController, ShowClientView showClientView) {
+	public ModifyClientRequestView(IClientController clientController, IView showClientView) {
 		super();
 		this.clientController = clientController;
 		this.showClientView = showClientView;

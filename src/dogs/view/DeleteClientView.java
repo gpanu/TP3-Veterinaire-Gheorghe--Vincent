@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 
 public class DeleteClientView extends JDialog implements IView, ActionListener {
 	
@@ -20,10 +20,10 @@ public class DeleteClientView extends JDialog implements IView, ActionListener {
 	private static final String BUTTON_ACTION = "DeleteClient";
 	private static final String MESSAGE = "Entrez le ID du client";
 	private JTextField clientIdField = new JTextField(MAX_LENGTH);
-	private ClientController clientController;
-	private ShowClientView showClientView;
+	private IClientController clientController;
+	private IView showClientView;
 
-	public DeleteClientView(ClientController clientController, ShowClientView showClientView) {
+	public DeleteClientView(IClientController clientController, IView showClientView) {
 		super();
 		this.clientController = clientController;
 		this.showClientView = showClientView;

@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 import dogs.dto.ClientDTOWithId;
 
 public class ModifyArgumentsOfClientView extends JDialog implements IView, ActionListener {
@@ -23,14 +23,14 @@ public class ModifyArgumentsOfClientView extends JDialog implements IView, Actio
 	private static final String LAST_NAME_TEXT = "Nom de famille: ";
 	private static final String FIRST_NAME_TEXT = "Nom:";
 	private JPanel inputPanel = new JPanel();
-	private ClientController clientController;
-	private ShowClientView showClientView;
+	private IClientController clientController;
+	private IView showClientView;
 	private int clientId;
 	private JTextField firstName = new JTextField(MAX_LENGTH);
 	private JTextField lastName = new JTextField(MAX_LENGTH);
 	private JTextField number = new JTextField(MAX_LENGTH);
 
-	public ModifyArgumentsOfClientView(ClientController clientController, ShowClientView showClientView, int clientId) {
+	public ModifyArgumentsOfClientView(IClientController clientController, IView showClientView, int clientId) {
 		super();
 		this.inputPanel.setLayout(new BorderLayout());
 		this.clientController = clientController;

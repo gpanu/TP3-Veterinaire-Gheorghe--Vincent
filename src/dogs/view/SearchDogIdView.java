@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 
 public class SearchDogIdView extends JDialog implements IView,ActionListener {
 	
@@ -19,12 +19,12 @@ public class SearchDogIdView extends JDialog implements IView,ActionListener {
 	private static final String BUTTON_ACTION = "Search";
 	private static final String ACTION_TO_DO_TEXT_ID = "Entrez le ID du chien à afficher";
 	private static final int MAX_LENGHT = 25;
-	private DogController dogController;
+	private IDogController dogController;
 	private JTextField dogIdField = new JTextField(MAX_LENGHT);
-	private ShowDogView showDogView;
+	private IView showDogView;
 
 
-	public SearchDogIdView(DogController dogController, ShowDogView showDogView) {
+	public SearchDogIdView(IDogController dogController, IView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;

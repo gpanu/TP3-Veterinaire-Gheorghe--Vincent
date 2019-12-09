@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 import dogs.dto.ClientDTOWithId;
 
 public class ShowClientView extends JDialog implements IView, ActionListener{
@@ -30,9 +30,9 @@ public class ShowClientView extends JDialog implements IView, ActionListener{
 	private static final String VIEW_DELETE_TITLE_ID = "Recherche par id";
 	private static final String VIEW_MODIFY_TITLE = "Modifier un client";
 	private List<ClientDTOWithId> list;
-	private ClientController clientController;
+	private IClientController clientController;
 
-	public ShowClientView(ClientController clientController, List<ClientDTOWithId> Clientslist) {
+	public ShowClientView(IClientController clientController, List<ClientDTOWithId> Clientslist) {
 		super();
 		this.list = Clientslist;
 		this.clientController = clientController;

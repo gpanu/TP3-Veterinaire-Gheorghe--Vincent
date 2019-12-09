@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.DogController;
 import dogs.controller.IDogController;
 import dogs.dto.DogDTO;
 
@@ -29,7 +28,7 @@ public class AddDogView extends JDialog implements IView, ActionListener {
 	private String VIEW_TITLE = "Ajouter ce chien";
 	private String BUTTON_ACTION = "AddDog";
 	
-	public AddDogView(DogController dogController) {
+	public AddDogView(IDogController dogController) {
 		super();
 		this.inputPanel.setLayout(new BorderLayout());
 		this.dogController = dogController;

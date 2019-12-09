@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.DogController;
+import dogs.controller.IDogController;
 
 public class DeleteDogView extends JDialog implements IView, ActionListener {
 
@@ -19,11 +19,11 @@ public class DeleteDogView extends JDialog implements IView, ActionListener {
 	private static final String MESSAGE = "Entrez le ID du chien à supprimer: ";
 	private static final String BUTTON_TITLE = "Supprimer le chien";
 	private static final String BUTTON_ACTION = "DeleteDog";
-	private DogController dogController;
+	private IDogController dogController;
 	private JTextField dogIdField = new JTextField(MAX_LENGTH);
-	private ShowDogView showDogView;
+	private IView showDogView;
 
-	public DeleteDogView(DogController dogController, ShowDogView showDogView) {
+	public DeleteDogView(IDogController dogController, IView showDogView) {
 		super();
 		this.dogController = dogController;
 		this.showDogView = showDogView;

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dogs.controller.ClientController;
+import dogs.controller.IClientController;
 import dogs.dto.ClientDTO;
 
 public class AddClientView extends JDialog implements IView, ActionListener {
@@ -21,13 +21,13 @@ public class AddClientView extends JDialog implements IView, ActionListener {
 	private static final String BUTTON_TITLE = "Ajouter ce client";
 	private static final String BUTTON_ACTION = "AddClient";
 	private static final String NUMBER_TEXT = "Numero de telephone:";
-	private ClientController clientController;
+	private IClientController clientController;
 	private JTextField firstName = new JTextField(MAX_LENGTH);
 	private JTextField lastName = new JTextField(MAX_LENGTH);
 	private JTextField number = new JTextField(MAX_LENGTH);
 	private JPanel inputPanel = new JPanel();
 
-	public AddClientView(ClientController clientController) {
+	public AddClientView(IClientController clientController) {
 		super();
 		this.clientController = clientController;
 		this.inputPanel.setLayout(new BorderLayout());

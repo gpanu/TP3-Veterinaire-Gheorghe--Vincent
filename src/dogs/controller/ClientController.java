@@ -62,22 +62,22 @@ public class ClientController extends JDialog implements IClientController {
 		this.dispose();
 	}
 
-	public void showDeleteClienViewAsked(ShowClientView showClientView) {
+	public void showDeleteClienViewAsked(IView showClientView) {
 		IView deleteView = new DeleteClientView(this, showClientView);
 		deleteView.display();
 	}
 
-	public void showModifyClienViewAsked(ShowClientView showClientView) {
+	public void showModifyClienViewAsked(IView showClientView) {
 		IView deleteView = new ModifyClientRequestView(this, showClientView);
 		deleteView.display();
 	}
 
-	public void showSearchNameViewClienAsked(ShowClientView showClientView) {
+	public void showSearchNameViewClienAsked(IView showClientView) {
 		IView searchView = new SearchClientNameView(this, showClientView);
 		searchView.display();
 	}
 
-	public void showSearchIdViewClienAsked(ShowClientView showClientView) {
+	public void showSearchIdViewClienAsked(IView showClientView) {
 		IView searchView = new SearchClientIdView(this, showClientView);
 		searchView.display();
 	}
@@ -99,12 +99,12 @@ public class ClientController extends JDialog implements IClientController {
 		list.remove(idInInt);
 	}
 
-	public void showDeleteDogConfirmation(String idToDelete, ShowClientView showClientView) {
+	public void showDeleteDogConfirmation(String idToDelete, IView showClientView) {
 		IView deleteView = new DeleteClientConfirmationView(this, idToDelete, showClientView);
 		deleteView.display();
 	}
 
-	public void showSearchedIdClient(int id, ShowClientView showClientView) {
+	public void showSearchedIdClient(int id, IView showClientView) {
 		searchId(id);
 		showClientView.dispose();
 	}
@@ -120,7 +120,7 @@ public class ClientController extends JDialog implements IClientController {
 		ShowClienView.display();
 	}
 
-	public void showModifyElementsOfClient(ShowClientView showClientView, int id) {
+	public void showModifyElementsOfClient(IView showClientView, int id) {
 		IView modifyView = new ModifyArgumentsOfClientView(this, showClientView, id);
 		modifyView.display();
 	}
@@ -131,7 +131,7 @@ public class ClientController extends JDialog implements IClientController {
 		this.dispose();
 	}
 
-	public void modifyClient(ShowClientView showClientView, ClientDTOWithId dto) {
+	public void modifyClient(IView showClientView, ClientDTOWithId dto) {
 		Client client = new Client(dto.firstName, dto.lastName, dto.number);
 		client.setId(dto.id);
 		this.repository.modify(dto.id, client);
@@ -139,7 +139,7 @@ public class ClientController extends JDialog implements IClientController {
 		goToShow();
 	}
 
-	public void showSearchedNameClient(String name, ShowClientView showClientView) {
+	public void showSearchedNameClient(String name, IView showClientView) {
 		searchName(name);
 		showClientView.dispose();
 	}
@@ -153,5 +153,10 @@ public class ClientController extends JDialog implements IClientController {
 		}
 		IView ShowClienView = new ShowClientView(this, newListClient);
 		ShowClienView.display();
+	}
+
+	@Override
+	public IRepository<Client> getRepo() {
+		return this.repository;
 	}
 }
