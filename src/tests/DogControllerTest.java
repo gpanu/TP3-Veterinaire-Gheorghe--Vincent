@@ -2,47 +2,25 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-import java.util.Map;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import dogs.controller.DogController;
-import dogs.controller.IClientController;
 import dogs.controller.IDogController;
-import dogs.dto.ClientDTOWithId;
-import dogs.dto.DogDTOWithId;
 import dogs.model.Client;
 import dogs.model.Dog;
 import dogs.model.IRepository;
-import dogs.view.IView;
-import dogs.view.ShowDogView;
 import mock.DogControllerMok;
-import mock.ClientDTOMock;
-import mock.ClientMock;
 import mock.DogDTOMock;
-import mock.DogMock;
-import mock.DogDTOWithIdMock;
-import mock.EntityMock;
 import mock.RepositoryMock;
-import mock.ShowDogViewMock;
+
 
 public class DogControllerTest{
-
-
 	
 	private static final String ANY_NAME = "bob";
-	private static final int ANY_ID = 1;
 	private static final int ANY_OWNER_ID = 1;
-	private static final int SECOND_OBJECT = 2;
 	private static final int FIRST_OBJECT = 1;
-	private static final String ANY_CLIENT_NUMBER = "418 418 4188";
-
 	
 //	@Before
 //	public void setUpDogRepository() {
@@ -112,10 +90,11 @@ public class DogControllerTest{
 		//Assert
 		assertTrue(dogs.isCalled());
 	}
-	
+
 	
 	//Nous avons essayer de tester ce comportement mais nous n'avont pas ete capable... nous le lesson quand meme pour montrer que
 	//nous l'avon essaillé
+
 //	@Test
 //	public void WHEN_DogIsModified_THEN_returnTrueIfNotTheSameAnyMore() {
 //		//Arrange

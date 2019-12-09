@@ -8,7 +8,7 @@ public abstract class ImageUtil {
 		return new ImageIcon(o.getClass().getResource(pathImage));
 	}
 
-	public static ImageIcon getImageIcon(Class c, String pathImage) {
+	public static ImageIcon getImageIcon(@SuppressWarnings("rawtypes") Class c, String pathImage) {
 		return new ImageIcon(c.getResource(pathImage));
 	}
 }
